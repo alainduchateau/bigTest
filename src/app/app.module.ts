@@ -5,12 +5,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { bigDealService } from './services/bigDeal.service';
 import { ListComponent } from './list/list.component';
+import { SingleCarComponent } from './single-car/single-car.component';
  
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent
+    ListComponent,
+    SingleCarComponent
   ],
   imports: [
     BrowserModule
