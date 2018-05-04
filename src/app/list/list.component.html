@@ -4,6 +4,8 @@
 <div ng-repeat="car in listVehicles " >
     
   <ul>
-    <li>test</li>
+    <li *ngFor="let carModel of carFamily"> 
+      {{ carModel }}
+    </li>
   </ul>
 </div>
