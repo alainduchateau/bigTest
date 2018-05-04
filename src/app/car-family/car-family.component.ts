@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { bigDealService } from '../services/bigDeal.service';
 
 @Component({
   selector: 'app-car-family',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarFamilyComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bigDealService:bigDealService) { }
+
+  modelFamily : any;
 
   ngOnInit() {
+
+    this.modelFamily = this.bigDealService.getCarByModel("i30 5d V7a"); 
+
+    console.log(this.modelFamily);
+
   }
 
 }
