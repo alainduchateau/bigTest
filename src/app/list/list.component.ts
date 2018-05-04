@@ -11,11 +11,37 @@ export class ListComponent implements OnInit {
 
   listVehicles:any;
 
+  car: any;
+
+  carFamily: any;
+
   constructor(private bigDealService : bigDealService) { }
 
   ngOnInit() {
     this.listVehicles = this.bigDealService.vehicles;
-    console.log(this.listVehicles);
+    this.listyByModels(this.listVehicles);
   }
 
+  listyByModels(carList){
+
+    this.carFamily = [];
+
+    carList.forEach(car => {
+
+          var found = this.carFamily.find(function(element) {
+            return element === car.Model;
+          });
+
+        if(found){
+
+        } else {  
+          this.carFamily.push(car.Model);
+        }
+      }
+    );
+    console.log(this.carFamily);
+  }
+
+
 }
+
