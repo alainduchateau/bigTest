@@ -1,6 +1,12 @@
-<button type="button" class="btn btn-primary">Primary</button>
-  <a routerLink="../../family/{{car.Model}}">Back to {{car.Model}} family</a>
 
-<p>
-  {{car.Reference}}
-</p>
+<h2>{{car.Model}}</h2>
+<h5>{{car.Reference}}</h5>
+<button type="button" class="btn btn-primary"> 
+    <a routerLink="../../family/{{car.Model}}" style="color: white;">Back to {{car.Model}} family</a>
+  </button>
+<div>
+  <ul>
+    <li>{{car.Model}}</li>
+  </ul>
+</div>
+ 

@@ -1,14 +1,12 @@
-<p>
-  list works!
-</p>
-
-
+<h2>Welcome on the bigDeal !</h2>
+<h5>{{count}} cars in the list</h5>
 
 <div ng-repeat="car in listVehicles " >
     
   <ul>
-    <li *ngFor="let carModel of carFamilies"> 
-      <a routerLink='family/{{carModel.Name}}'>{{ carModel.Name }}</a>
+    <li *ngFor="let carModel of carFamilies">
+       
+      <a routerLink="family/{{carModel.Name}}">{{ carModel.Name }} ({{carModel.numberOfCar}})</a>
     </li>
   </ul>
 </div>

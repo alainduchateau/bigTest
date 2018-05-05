@@ -15,16 +15,21 @@ export class ListComponent implements OnInit {
 
   carFamilies: any;
 
+  count : number;
+
   constructor(private bigDealService : bigDealService) { }
 
   ngOnInit() {
     this.listVehicles = this.bigDealService.vehicles;
     this.listyByModels(this.listVehicles);
+    this.count = this.listVehicles.length;
   }
 
   listyByModels(carList){
 
     this.carFamilies = [];
+
+
 
     carList.forEach(car => {
 
@@ -33,9 +38,12 @@ export class ListComponent implements OnInit {
           });
 
         if(found){
-
-        } else {  
-          var carFamily = {"Name":car.Model,"Fuel":21}
+          var currentCarFamily =  this.carFamilies.filter(function(item) {
+            return item.Name === car.Model;
+          })[0]; 
+          currentCarFamily.numberOfCar++;
+         } else {  
+          var carFamily = {"Name":car.Model,"numberOfCar":1}
           this.carFamilies.push(carFamily);
         }
       }

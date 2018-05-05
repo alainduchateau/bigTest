@@ -11,6 +11,7 @@ export class CarFamilyComponent implements OnInit {
 
   modelFamily:string;
   modelFamilyList : any;
+  count : number;
   
   constructor(private bigDealService:bigDealService, private route: ActivatedRoute) { }
 
@@ -20,6 +21,8 @@ export class CarFamilyComponent implements OnInit {
 
     //Download family list for bigDeal service
     this.modelFamilyList = this.bigDealService.getCarByModel(this.modelFamily); 
+
+    this.count = this.modelFamilyList.length
 
   }
 
