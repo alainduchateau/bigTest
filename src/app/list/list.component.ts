@@ -33,10 +33,10 @@ export class ListComponent implements OnInit {
           });
 
         if(found){
-          console.log("trouvé");
+
         } else {  
           var carFamily = {"Name":car.Model,"Fuel":21}
-          this.carFamilies.push(carFamily); console.log(this.carFamilies);
+          this.carFamilies.push(carFamily);
         }
       }
     );

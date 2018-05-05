@@ -1,7 +1,8 @@
-<p>
-  car-family works!
-</p>
+<h2>{{modelFamily}}</h2>
+<div>
+  <a routerLink="/">Back to family list</a>
 
+</div>
 <li *ngFor="let model of modelFamilyList"> 
   <a routerLink="../../detail/{{model.Reference}}">{{ model.Reference }}</a>
 </li>
