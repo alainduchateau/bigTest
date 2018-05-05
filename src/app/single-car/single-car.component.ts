@@ -19,7 +19,9 @@ export class SingleCarComponent implements OnInit {
   ngOnInit() {
     //this.car = this.bigDealService.getCarById(this.modelReference);
 
-      this.car = this.route.snapshot.params['modelReference'];
+      this.modelReference = this.route.snapshot.params['modelReference'];
+      this.car = this.bigDealService.getCarById(this.modelReference);
+
       console.log(this.car);
   }
 
