@@ -13,7 +13,7 @@ export class ListComponent implements OnInit {
 
   car: any;
 
-  carFamily: any;
+  carFamilies: any;
 
   constructor(private bigDealService : bigDealService) { }
 
@@ -24,22 +24,23 @@ export class ListComponent implements OnInit {
 
   listyByModels(carList){
 
-    this.carFamily = [];
+    this.carFamilies = [];
 
     carList.forEach(car => {
 
-          var found = this.carFamily.find(function(element) {
-            return element === car.Model;
+          var found = this.carFamilies.find(function(element) {
+            return element.Name === car.Model;
           });
 
         if(found){
-
+          console.log("trouvé");
         } else {  
-          this.carFamily.push(car.Model);
+          var carFamily = {"Name":car.Model,"Fuel":21}
+          this.carFamilies.push(carFamily); console.log(this.carFamilies);
         }
       }
     );
-    console.log(this.carFamily);
+   
   }
 
 }

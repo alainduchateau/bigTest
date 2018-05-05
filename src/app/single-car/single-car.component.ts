@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 import { bigDealService } from '../services/bigDeal.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-single-car',
@@ -10,17 +11,16 @@ export class SingleCarComponent implements OnInit {
 
   car : any;
 
-  modelFamily:any;
+  modelReference: string;
 
-  constructor(private bigDealService:bigDealService) { }
+
+  constructor(private bigDealService:bigDealService,private route: ActivatedRoute) { }
 
   ngOnInit() {
+    //this.car = this.bigDealService.getCarById(this.modelReference);
 
-    this.car = this.bigDealService.getCarById('TMAH3517AJJ053967');
-
-    this.modelFamily = this.bigDealService.getCarByModel("i30 5d V7a");
-    console.log(this.modelFamily);
-
+      this.car = this.route.snapshot.params['modelReference'];
+      console.log(this.car);
   }
 
 }
