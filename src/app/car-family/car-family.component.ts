@@ -12,6 +12,9 @@ export class CarFamilyComponent implements OnInit {
   modelFamily:string;
   modelFamilyList : any;
   count : number;
+  fuelDiesel : string;
+  fuelGasoline : string;
+  carFuel:string;
   
   constructor(private bigDealService:bigDealService, private route: ActivatedRoute) { }
 
@@ -24,6 +27,9 @@ export class CarFamilyComponent implements OnInit {
 
     this.count = this.modelFamilyList.length
 
+    this.fuelDiesel    = this.modelFamilyList.filter(car  => car.FuelCode == "diesel");
+    this.fuelGasoline  = this.modelFamilyList.filter(car  => car.FuelCode == "gasoline");
+      
   }
 
 }

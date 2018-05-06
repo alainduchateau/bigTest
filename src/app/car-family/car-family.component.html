@@ -5,10 +5,13 @@
 
 <h2>{{modelFamily}}</h2>
 <h5>{{count}} cars in this list</h5>
+<div class=""><b>{{fuelGasoline.length}}</b> vehicles on gasoline and <b>{{fuelDiesel.length}} on diesel</b></div>
 
 </div>
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let model of modelFamilyList"> 
+  <li class="list-group-item" *ngFor="let model of modelFamilyList"
+
+  >
     <a routerLink="../../detail/{{model.Reference}}">{{ model.Reference }}</a>
   </li>
 </ul>
