@@ -1,14 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import { Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { bigDealService } from './services/bigDeal.service';
 import { ListComponent } from './list/list.component';
 import { SingleCarComponent } from './single-car/single-car.component';
 import { CarFamilyComponent } from './car-family/car-family.component';
-import { Routes } from '@angular/router';
-import { RouterModule } from '@angular/router';
+
 
 const appRoutes: Routes = [
  
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [bigDealService],

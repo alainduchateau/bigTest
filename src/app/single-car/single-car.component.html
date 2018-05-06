@@ -1,12 +1,28 @@
 
+<button type="button" class="btn btn-primary"> 
+  <a routerLink="../../family/{{car.Model}}" style="color: white;">Back to {{car.Model}} family</a>
+</button>
+
 <h2>{{car.Model}}</h2>
 <h5>{{car.Reference}}</h5>
-<button type="button" class="btn btn-primary"> 
-    <a routerLink="../../family/{{car.Model}}" style="color: white;">Back to {{car.Model}} family</a>
-  </button>
+
 <div>
-  <ul>
-    <li>{{car.Model}}</li>
+  <ul class="list-group">
+    <li class="list-group-item">Accesories = {{car.Accessories}}</li>
+    <li class="list-group-item">BigDealPrice= {{car.BigDealPrice}}</li>
+    <li class="list-group-item">CataloguePrice = {{car.CataloguePrice}}</li>
+    <li class="list-group-item">Color = {{car.Color}}</li>
+    <li class="list-group-item">Deprecioation = {{car.Deprecioation}}</li>
+    <li class="list-group-item">DeprecioationReason = {{car.DeprecioationReason}}</li>
+    <li class="list-group-item">Discount = {{car.Discount}}</li>
+    <li class="list-group-item">FirstImmatDate = {{car.FirstImmatDate}}</li>
+    <li class="list-group-item">FuelCode = {{car.FuelCode}}</li>
+    <li class="list-group-item">Gear = {{car.Gear}}</li>
+    <li class="list-group-item">Km = {{car.Km}}</li>
+    <li class="list-group-item">Model = {{car.Model}}</li>
+    <li class="list-group-item">Motorisation = {{car.Motorisation}}</li>
+    <li class="list-group-item">Reference = {{car.Reference}}</li>
+    <li class="list-group-item">version = {{car.version}}</li>
   </ul>
 </div>
- 
+

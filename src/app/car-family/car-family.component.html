@@ -1,13 +1,14 @@
+<button type="button" class="btn btn-primary"> 
+  <a routerLink="/" style="color: white">Back to family list</a>
+</button>
+<div>
+
 <h2>{{modelFamily}}</h2>
 <h5>{{count}} cars in this list</h5>
 
-<button type="button" class="btn btn-primary"> 
-    <a routerLink="/" style="color: white">Back to family list</a>
-  </button>
-<div>
-
-
 </div>
-<li *ngFor="let model of modelFamilyList"> 
-  <a routerLink="../../detail/{{model.Reference}}">{{ model.Reference }}</a>
-</li>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let model of modelFamilyList"> 
+    <a routerLink="../../detail/{{model.Reference}}">{{ model.Reference }}</a>
+  </li>
+</ul>
