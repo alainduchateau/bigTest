@@ -6,9 +6,11 @@
       
       <div class="row">
           <div class="span4" *ngFor="let carModel of carFamilies">
-            <div class=""  style="min-width:250px; height:200px; border:1px solid #ccc!important; border-radius: 5px; margin-top:10px; margin-right:10px">
-              <a routerLink="family/{{carModel.Name}}">{{ carModel.Name }} ({{carModel.numberOfCar}})</a>
-            </div>
+              <a routerLink="family/{{carModel.Name}}">
+                <div class=""  style="min-width:250px; height:200px; border:1px solid #ccc!important; border-radius: 5px; margin-top:10px; margin-right:10px">
+                  {{ carModel.Name }} ({{carModel.numberOfCar}})
+                </div>
+              </a>
           </div>
       </div>
       
