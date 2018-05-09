@@ -29,8 +29,6 @@ export class ListComponent implements OnInit {
 
     this.carFamilies = [];
 
-
-
     carList.forEach(car => {
 
           var found = this.carFamilies.find(function(element) {
