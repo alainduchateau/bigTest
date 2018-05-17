@@ -25,6 +25,10 @@ export class ListComponent implements OnInit {
     this.count = this.listVehicles.length;
   }
 
+ onFetch(){
+   this.bigDealService.getVehiclesFromServer();
+ }
+
   listyByModels(carList){
 
     this.carFamilies = [];

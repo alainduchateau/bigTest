@@ -1,4 +1,30 @@
+import { Subject } from 'rxjs/Subject';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable()
 export class bigDealService {
+
+  constructor(private httpClient:HttpClient){
+    
+  }
+
+  cars:any;
+
+  getVehiclesFromServer() {
+    this.httpClient
+      .get<any[]>('https://bigtest-a64dd.firebaseio.com/.json')
+      .subscribe(
+        (response) => {
+          this.cars = response;
+          console.log(this.cars);
+
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+  }
 
   getCarById(reference:string){
     const singleCar = this.vehicles.find(
