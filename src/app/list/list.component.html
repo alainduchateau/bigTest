@@ -1,7 +1,12 @@
 <h2>Welcome on the bigDeal !</h2>
-<h5>{{count}} cars in the list</h5>
-<button class="btn btn-primary"
-        (click)="onFetch()">Récupérer les voitures</button>
+
+<div *ngIf="!listVehicles" class="alert alert-error box-msg">
+  <h5>loadgin vehicles</h5>
+</div>
+
+<div *ngIf="listVehicles" class="alert alert-success box-msg">
+  <h5>{{count}} cars loaded in the list</h5>
+</div>
 
       <div ng-repeat="car in listVehicles " >
       

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { bigDealService } from '../services/bigDeal.service';
+import { Subscription } from 'rxjs/Subscription';
 
 
 @Component({
@@ -17,12 +18,24 @@ export class ListComponent implements OnInit {
 
   count : number;
 
+  vehiclesSubscription: Subscription;  
+
   constructor(private bigDealService : bigDealService) { }
 
   ngOnInit() {
-    this.listVehicles = this.bigDealService.vehicles;
-    this.listyByModels(this.listVehicles);
-    this.count = this.listVehicles.length;
+    this.bigDealService.getVehiclesFromServer();
+    
+    this.vehiclesSubscription = this.bigDealService.vehiclesSubject.subscribe(
+      (vehicles: any[]) => {
+       console.log("chargement terminé"); 
+       this.listVehicles = vehicles;
+       this.listyByModels(this.listVehicles);
+       this.count = this.listVehicles.length;
+      }
+    );
+    //this.bigDealService.emitVehiclesSubject();
+  
+  
   }
 
  onFetch(){
