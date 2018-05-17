@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { bigDealService } from '../services/bigDeal.service';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-car-family',
@@ -16,19 +17,27 @@ export class CarFamilyComponent implements OnInit {
   fuelGasoline: string;
   carFuel: string;
 
+  familySubscription: Subscription;
+
   constructor(private bigDealServ: bigDealService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    // Retrieve model family for the current url
-    this.modelFamily = this.route.snapshot.params['modelFamily'];
 
-    // Download family list for bigDeal service
-    this.modelFamilyList = this.bigDealServ.getCarByModel(this.modelFamily);
+    this.bigDealServ.getVehiclesFromServer();
 
-    this.count = this.modelFamilyList.length;
+    this.familySubscription = this.bigDealServ.vehiclesSubject.subscribe(
+      (vehicles: any[]) => {
+        console.log("chargement family terminé");
+        // Retrieve model family for the current url
+        this.modelFamily = this.route.snapshot.params['modelFamily'];
+        // Download family list for bigDeal service
+        this.modelFamilyList = this.bigDealServ.getCarByModel(this.modelFamily);
+        this.count = this.modelFamilyList.length;
+        this.fuelDiesel = this.modelFamilyList.filter(car => car.FuelCode === 'diesel');
+        this.fuelGasoline = this.modelFamilyList.filter(car => car.FuelCode === 'gasoline');
+      }
+    );
 
-    this.fuelDiesel = this.modelFamilyList.filter(car  => car.FuelCode === 'diesel');
-    this.fuelGasoline  = this.modelFamilyList.filter(car  => car.FuelCode === 'gasoline');
 
   }
 
