@@ -53,10 +53,13 @@ export class ListComponent implements OnInit {
         if(found){
           var currentCarFamily =  this.carFamilies.filter(function(item) {
             return item.Name === car.Model;
-          })[0]; 
+          })[0];
+          var displayName = this.bigDealService.getRightModelName(this.bigDealService.dico, car.Model); 
           currentCarFamily.numberOfCar++;
+          currentCarFamily.carFamilyDisplayName = displayName;
          } else {  
-          var carFamily = {"Name":car.Model,"numberOfCar":1}
+          var displayName = this.bigDealService.getRightModelName(this.bigDealService.dico, car.Model);
+          var carFamily = {"Name":car.Model,"numberOfCar":1,"carFamilyDisplayName":displayName}
           this.carFamilies.push(carFamily);
         }
       }
