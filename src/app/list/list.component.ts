@@ -50,6 +50,7 @@ export class ListComponent implements OnInit {
 
           var found = this.carFamilies.find(function(element) {
             return element.Name === car.Model;
+            
           });
 
         if(found){
