@@ -32,10 +32,7 @@ export class ListComponent implements OnInit {
        this.listyByModels(this.listVehicles);
        this.count = this.listVehicles.length;
       }
-    );
-    //this.bigDealService.emitVehiclesSubject();
-  
-  
+    );  
   }
 
  onFetch(){
