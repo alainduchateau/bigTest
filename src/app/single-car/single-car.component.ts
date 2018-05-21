@@ -16,7 +16,6 @@ export class SingleCarComponent implements OnInit {
 
   signleCarSubscription: Subscription;
 
-
   constructor(private bigDealService:bigDealService,private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -32,8 +31,6 @@ export class SingleCarComponent implements OnInit {
         this.car = this.bigDealService.getCarById(this.modelReference);
         // Find the marketing name and inject on the object
         this.car.marketingName =    this.bigDealService.getRightModelName(this.bigDealService.dico, this.car.Model);
-
-        console.log("this family carr=================> "+this.car.marketingName);
       }
     );
       

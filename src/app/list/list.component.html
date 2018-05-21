@@ -12,7 +12,8 @@
 
       <table>
           <div *ngFor="let carModel of carFamilies">
-           <a routerLink="/family/{{carModel}}">{{carModel}}</a>
+           <div class="col-lg-12"><a routerLink="/family/{{carModel}}">{{carModel}}</a>
+          </div>
           </div>
         </table>
       </div>

@@ -10,9 +10,9 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class ListComponent implements OnInit {
 
-  listVehicles: any;
+  listVehicles: any[];
   car: object;
-  carFamilies: any;
+  carFamilies: any[];
   count: number;
   sortedByFamilies: any;
 
