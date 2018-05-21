@@ -8,16 +8,13 @@
   <h5>{{count}} cars loaded in the list</h5>
 </div>
 
-      <div ng-repeat="car in listVehicles " >
-      
-      <div class="row">
-          <div class="span4" *ngFor="let carModel of carFamilies">
-              <a routerLink="family/{{carModel.Name}}">
-                <div class=""  style="min-width:250px; height:200px; border:1px solid #ccc!important; border-radius: 5px; margin-top:10px; margin-right:10px">
-                  {{ carModel.carFamilyDisplayName }} ({{carModel.numberOfCar}})
-                </div>
-              </a>
+  <div class="container">
+
+      <table>
+          <div ng-for="car of carFamilies ">
+           
           </div>
+        </table>
       </div>
-      
+  
     

@@ -1,6 +1,7 @@
 import { Subject } from 'rxjs/Subject';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Pipe, PipeTransform } from '@angular/core';
 
 
 
@@ -47,6 +48,20 @@ export class bigDealService {
       .sort((a, b) => a.Reference.includes(model) && !b.Reference.includes(model) ? -1 : b.Reference.includes(model) && !a.Reference.includes(model) ? 1 : 0);
   }
 
+   groupBy(list, keyGetter) {
+  const map = new Map();
+  list.forEach((item) => {
+      const key = keyGetter(item);
+      const collection = map.get(key);
+      if (!collection) {
+          map.set(key, [item]);
+      } else {
+          collection.push(item);
+      }
+  });
+  return map;
+}
+
   dico = [
     {key: "i10",
       values: [ 'i10 5d 12','i10','i10 5d','i10 5d v5a','i10 5d 14','i10 5d v6a']
@@ -84,7 +99,8 @@ export class bigDealService {
                 'i30 5d V7a',
                 'i30 5 doors V7a',
                 'i30 5 d V7a',
-                'i30 5d V5b'
+                'i30 5d V5b',
+                
               ]
     }, 
     {key: 'i30 Wagon',
@@ -110,7 +126,11 @@ export class bigDealService {
       values: ['vel 4d v5a','vel 3d 14']
     }, 
     {key: "IONIQ",
-      values: ['ion hv v6a','ion hv v7a']
+      values: ['ion hv v6a',
+               'ion hv v7a',
+               'Ion HV V6a',
+               'Ion HV V7a'
+              ]
     },
     {key: "i40 Sedan",
       values: ['i40 sedan',
@@ -134,7 +154,8 @@ export class bigDealService {
                'i40 5d',
                'i40 5d go',
                'i40 5d v6a',
-               'i40 wagon V5a'
+               'i40 wagon V5a',
+               'i40 5d V6a'
               ]
     },
     {key: "ix35",
@@ -174,13 +195,11 @@ export class bigDealService {
     }
   ];
 
-  lol: any = (this.getRightModelName(this.dico, "h1 4d v5a"));
-
   getRightModelName(dictionnary, modelName) {
     var output = "none";
     Object.keys(dictionnary).forEach(key => {
       dictionnary[key].values.forEach(value => {
-        if (value === modelName) {
+        if (value.toLowerCase() === modelName.toLowerCase()) {
           output = dictionnary[key].key
          
         } 
@@ -189,5 +208,8 @@ export class bigDealService {
     )
     return output
   }
+
+
+
 
 }

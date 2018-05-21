@@ -18,6 +18,8 @@ export class ListComponent implements OnInit {
 
   count : number;
 
+  sortedByFamilies:any;
+
   vehiclesSubscription: Subscription;  
 
   constructor(private bigDealService : bigDealService) { }
@@ -41,31 +43,26 @@ export class ListComponent implements OnInit {
 
   listyByModels(carList){
 
-    this.carFamilies = [];
+  var increment = 0;
 
     carList.forEach(car => {
-
-          var found = this.carFamilies.find(function(element) {
-            return element.Name === car.Model;
-            
-          });
-
-        if(found){
-          var currentCarFamily =  this.carFamilies.filter(function(item) {
-            return item.Name === car.Model;
-          })[0];
-          var displayName = this.bigDealService.getRightModelName(this.bigDealService.dico, car.Model); 
-          currentCarFamily.numberOfCar++;
-          currentCarFamily.carFamilyDisplayName = displayName;
-         } else {  
-          var displayName = this.bigDealService.getRightModelName(this.bigDealService.dico, car.Model);
-          var carFamily = {"Name":car.Model,"numberOfCar":1,"carFamilyDisplayName":displayName}
-          this.carFamilies.push(carFamily);
+    
+      var marketingName = this.bigDealService.getRightModelName(this.bigDealService.dico, car.Model);
+      if(marketingName){
+        //console.log("originalName :"+car.Model+"------"+marketingName);
+        car.marketingName = marketingName;
         }
-      }
+    }   
     );
-   
-  }
+
+    this.sortedByFamilies = this.bigDealService.groupBy(this.listVehicles, car => car.marketingName);
+
+    this.carFamilies = Array.from(this.sortedByFamilies.keys());
+    console.log(this.carFamilies);
+    //this.lol = this.carFamilies.get("i30")
+
+
+}
 
 }
 
