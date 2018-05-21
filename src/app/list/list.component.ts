@@ -10,59 +10,59 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class ListComponent implements OnInit {
 
-  listVehicles:any;
+  listVehicles: any;
 
   car: any;
 
   carFamilies: any;
 
-  count : number;
+  count: number;
 
-  sortedByFamilies:any;
+  sortedByFamilies: any;
 
-  vehiclesSubscription: Subscription;  
+  vehiclesSubscription: Subscription;
 
-  constructor(private bigDealService : bigDealService) { }
+  constructor(private bigDealService: bigDealService) { }
 
   ngOnInit() {
     this.bigDealService.getVehiclesFromServer();
-    
+
     this.vehiclesSubscription = this.bigDealService.vehiclesSubject.subscribe(
       (vehicles: any[]) => {
-       console.log("chargement terminé"); 
-       this.listVehicles = vehicles;
-       this.listyByModels(this.listVehicles);
-       this.count = this.listVehicles.length;
+        console.log("chargement terminé");
+        this.listVehicles = vehicles;
+        this.listyByModels(this.listVehicles);
+        this.count = this.listVehicles.length;
       }
-    );  
+    );
   }
 
- onFetch(){
-   this.bigDealService.getVehiclesFromServer();
- }
+  onFetch() {
+    this.bigDealService.getVehiclesFromServer();
+  }
 
-  listyByModels(carList){
+  listyByModels(carList) {
 
-  var increment = 0;
+    var increment = 0;
 
     carList.forEach(car => {
-    
+
       var marketingName = this.bigDealService.getRightModelName(this.bigDealService.dico, car.Model);
-      if(marketingName){
+      if (marketingName) {
         //console.log("originalName :"+car.Model+"------"+marketingName);
         car.marketingName = marketingName;
-        }
-    }   
+      }
+    }
     );
 
     this.sortedByFamilies = this.bigDealService.groupBy(this.listVehicles, car => car.marketingName);
 
     this.carFamilies = Array.from(this.sortedByFamilies.keys());
     console.log(this.carFamilies);
-    //this.lol = this.carFamilies.get("i30")
+    console.log(this.sortedByFamilies.get("ix20").length);
 
 
-}
+  }
 
 }
 

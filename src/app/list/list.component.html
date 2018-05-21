@@ -11,8 +11,8 @@
   <div class="container">
 
       <table>
-          <div ng-for="car of carFamilies ">
-           
+          <div *ngFor="let carModel of carFamilies">
+           <a routerLink="/family/{{carModel}}">{{carModel}}</a>
           </div>
         </table>
       </div>
