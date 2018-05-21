@@ -10,35 +10,37 @@ import { Subscription } from 'rxjs/Subscription';
 })
 export class CarFamilyComponent implements OnInit {
 
-  modelFamily: string;
+  modelFamilyArray: string;
   modelFamilyList: any;
   count: number;
   fuelDiesel: string;
   fuelGasoline: string;
   carFuel: string;
+  listVehicles:any;
+  selectedFamily:any;
 
   familySubscription: Subscription;
 
-  constructor(private bigDealServ: bigDealService, private route: ActivatedRoute) { }
+  constructor(private bigDealService: bigDealService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.selectedFamily = this.route.snapshot.params['modelFamily'];
 
-    this.bigDealServ.getVehiclesFromServer();
+    this.bigDealService.getVehiclesFromServer();
 
-    this.familySubscription = this.bigDealServ.vehiclesSubject.subscribe(
+    this.familySubscription = this.bigDealService.vehiclesSubject.subscribe(
       (vehicles: any[]) => {
-        console.log("chargement family terminé");
-        // Retrieve model family for the current url
-        this.modelFamily = this.route.snapshot.params['modelFamily'];
-        // Download family list for bigDeal service
-        this.modelFamilyList = this.bigDealServ.getCarByModel(this.modelFamily);
-        this.count = this.modelFamilyList.length;
-        this.fuelDiesel = this.modelFamilyList.filter(car => car.FuelCode === 'diesel');
-        this.fuelGasoline = this.modelFamilyList.filter(car => car.FuelCode === 'gasoline');
+        console.log("chargement terminé");
+        //Setup the variable to call the result later
+        this.listVehicles = vehicles;
+        //Create map with filtered array by marketing name of each model
+        this.modelFamilyList = this.bigDealService.groupBy(this.listVehicles, car => car.marketingName); 
+        //Create the array by the selected family
+        this.modelFamilyArray = this.modelFamilyList.get(this.selectedFamily);
+        console.log("familyList: "+this.modelFamilyList.get(this.selectedFamily).length);
+
       }
     );
-
-
   }
 
 }

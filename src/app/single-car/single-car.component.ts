@@ -28,10 +28,15 @@ export class SingleCarComponent implements OnInit {
         console.log("chargement family terminé");
         // Retrieve model family for the current url
         this.modelReference = this.route.snapshot.params['modelReference'];
+        // Load data for the specific model 
         this.car = this.bigDealService.getCarById(this.modelReference);
+        // Find the marketing name and inject on the object
+        this.car.marketingName =    this.bigDealService.getRightModelName(this.bigDealService.dico, this.car.Model);
+
+        console.log("this family carr=================> "+this.car.marketingName);
       }
     );
-      console.log(this.car);
+      
   }
 
 }
