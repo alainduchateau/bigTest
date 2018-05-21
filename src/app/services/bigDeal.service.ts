@@ -270,7 +270,4 @@ getRightModelName(dictionnary, modelName) {
     return output
   }
 
-
-
-
 }
