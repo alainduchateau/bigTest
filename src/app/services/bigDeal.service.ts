@@ -131,39 +131,39 @@ groupBy(list, keyGetter) {
     {
       key: "i30",
       values: ['i30 3d v5a',
-        'i30 3d 14',
-        'i30 3deurs',
-        'i30 3d v5b',
-        'i30 5d v7a',
-        'i30 5d 13',
-        'i30',
-        'i30 5d v5a',
-        'i30 5d v5b',
-        'i30 5d V7a',
-        'i30 5 doors V7a',
-        'i30 5 d V7a',
-        'i30 5d V5b',
+              'i30 3d 14',
+              'i30 3deurs',
+              'i30 3d v5b',
+              'i30 5d v7a',
+              'i30 5d 13',
+              'i30',
+              'i30 5d v5a',
+              'i30 5d v5b',
+              'i30 5d V7a',
+              'i30 5 doors V7a',
+              'i30 5 d V7a',
+              'i30 5d V5b',
 
       ]
     },
     {
       key: 'i30 Wagon',
       values: ['i30 w 13',
-        'i30 wagon',
-        'i30 cw v5a',
-        'i30 w 14',
-        'i30 w 15',
-        'i30 cw',
-        'i30 cw v5b',
-        'i30 cw 14',
-        'i30 cw 13',
-        'i30 wg v7a',
-        'i30 Wg V7a',
-        'i30 cw V5b',
-        'i30 wagon V5b',
-        'i30 Wagon V7a',
-        'i30 Wagon V7a 110',
-        'i30 5 doors V7a 110'
+              'i30 wagon',
+              'i30 cw v5a',
+              'i30 w 14',
+              'i30 w 15',
+              'i30 cw',
+              'i30 cw v5b',
+              'i30 cw 14',
+              'i30 cw 13',
+              'i30 wg v7a',
+              'i30 Wg V7a',
+              'i30 cw V5b',
+              'i30 wagon V5b',
+              'i30 Wagon V7a',
+              'i30 Wagon V7a 110',
+              'i30 5 doors V7a 110'
       ]
     },
     {
@@ -208,26 +208,32 @@ groupBy(list, keyGetter) {
     },
     {
       key: "ix35",
-      values: ['ix35', 'ix35 5d', 'ix35 5d 14', 'ix35 5d go']
+      values: ['ix35', 
+               'ix35 5d',
+               'ix35 5d 14',
+               'ix35 5d go'
+              ]
     },
     {
       key: "ix20",
       values: ['ix20 5d v5a',
-        'ix20 5dv5a',
-        'ix20 5dV5a']
+               'ix20 5dv5a',
+               'ix20 5dV5a']
     },
     {
       key: "Tucson",
-      values: ['tucson', 'tucson 5d v5a', 'Tuc 5d V5a']
+      values: ['tucson', 
+               'tucson 5d v5a',
+               'Tuc 5d V5a']
     },
     {
       key: "Santa Fe",
       values: ['santa fe',
-        'sfn 5d v5a',
-        'sfn 5d 13',
-        'sfn 5d 14',
-        'sfn 5d v6a',
-        'Santa Fe 5 doors V6a'
+               'sfn 5d v5a',
+               'sfn 5d 13',
+               'sfn 5d 14',
+               'sfn 5d v6a',
+               'Santa Fe 5 doors V6a'
       ]
     },
     {
@@ -237,11 +243,11 @@ groupBy(list, keyGetter) {
     {
       key: "Grand Santa Fe",
       values: ['grand santa fe',
-        'gsf 5d v5b',
-        'gsf 5d v5a',
-        'gsf 5d v6a',
-        'Gsf 5d V6a',
-        'Grand Santa Fe 5 doors V6a'
+               'gsf 5d v5b',
+               'gsf 5d v5a',
+               'gsf 5d v6a',
+               'Gsf 5d V6a',
+               'Grand Santa Fe 5 doors V6a'
       ]
     },
     {

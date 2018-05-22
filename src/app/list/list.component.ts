@@ -39,9 +39,11 @@ export class ListComponent implements OnInit {
 
  listyByModels(carList) {
     this.sortedByFamilies = this.bigDealService.groupBy(this.listVehicles, car => car.marketingName);
-    
     this.carFamilies = Array.from(this.sortedByFamilies.keys());
-    console.log(this.carFamilies);
+  }
+
+  sumByModel(selectedModel){
+    return(this.sortedByFamilies.get(selectedModel).length);
   }
 
 }
