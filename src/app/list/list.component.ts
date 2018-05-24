@@ -42,5 +42,9 @@ export class ListComponent implements OnInit {
     this.carFamilies = Array.from(this.sortedByFamilies.keys());
   }
 
+  sumByModel(selectedModel){
+    return(this.sortedByFamilies.get(selectedModel).length);
+  }
+
 }
 
