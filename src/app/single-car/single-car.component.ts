@@ -12,16 +12,31 @@ export class SingleCarComponent implements OnInit {
 
   car : any;
 
-  modelReference: string = this.route.snapshot.params['modelReference'];
+  modelReference: string ;
 
   signleCarSubscription: Subscription;
+
+  marketingName:string;
 
   constructor(private bigDealService:bigDealService,private route: ActivatedRoute) { }
 
   ngOnInit() {
-    
-    this.car = this.bigDealService.getCarById(this.modelReference);
-    //this.car = this.bigDealService.getCarById(this.modelReference);  
+    //Retrieve data from service
+    this.bigDealService.getVehiclesFromServer();
+
+    this.modelReference = this.route.snapshot.params['modelReference'];
+    console.log( this.modelReference);
+    this.signleCarSubscription = this.bigDealService.vehiclesSubject.subscribe(
+      
+      (vehicles: any[]) => {
+        //Setup the variable to call the result later
+        this.car = this.bigDealService.getCarById(this.modelReference);
+
+        this.marketingName = this.bigDealService.getRightModelName(this.bigDealService.dico,this.car.Model);
+        console.log(this.marketingName);
+      }
+    );
+  
   }
   
 }
