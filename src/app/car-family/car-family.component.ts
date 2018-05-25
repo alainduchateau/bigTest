@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { bigDealService } from '../services/bigDeal.service';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-car-family',
@@ -21,12 +21,12 @@ export class CarFamilyComponent implements OnInit {
 
   familySubscription: Subscription;
 
-  constructor(private bigDealService: bigDealService, private route: ActivatedRoute) { }
+  constructor(private bigDealService: bigDealService, private route: ActivatedRoute) {
+    this.bigDealService.getVehiclesFromServer();
+  }
 
   ngOnInit() {
     this.selectedFamily = this.route.snapshot.params['modelFamily'];
-
-    this.bigDealService.getVehiclesFromServer();
     
     this.familySubscription = this.bigDealService.vehiclesSubject.subscribe(
       (vehicles: any[]) => {

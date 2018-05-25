@@ -1,7 +1,7 @@
 import { Component,Input, OnInit } from '@angular/core';
 import { bigDealService } from '../services/bigDeal.service';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-single-car',
@@ -18,11 +18,14 @@ export class SingleCarComponent implements OnInit {
 
   marketingName:string;
 
-  constructor(private bigDealService:bigDealService,private route: ActivatedRoute) { }
+  constructor(private bigDealService:bigDealService,private route: ActivatedRoute) {
+
+    this.bigDealService.getVehiclesFromServer();
+  }
 
   ngOnInit() {
     //Retrieve data from service
-    this.bigDealService.getVehiclesFromServer();
+    
 
     this.modelReference = this.route.snapshot.params['modelReference'];
     console.log( this.modelReference);

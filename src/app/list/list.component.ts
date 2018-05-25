@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { bigDealService } from '../services/bigDeal.service';
-import { Subscription } from 'rxjs/Subscription';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -18,12 +18,12 @@ export class ListComponent implements OnInit {
 
   vehiclesSubscription: Subscription;
 
-  constructor(private bigDealService: bigDealService) { }
+  constructor(private bigDealService: bigDealService) { 
+        //Retrieve data from service
+        this.bigDealService.getVehiclesFromServer();
+  }
 
   ngOnInit() {
-    //Retrieve data from service
-    this.bigDealService.getVehiclesFromServer();
-
     //Listen the vechicle subjet, trigger the action after datas are loaded
     this.vehiclesSubscription = this.bigDealService.vehiclesSubject.subscribe(
       (vehicles: any[]) => {
