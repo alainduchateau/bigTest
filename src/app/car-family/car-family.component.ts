@@ -27,7 +27,9 @@ export class CarFamilyComponent implements OnInit {
 
   ngOnInit() {
     this.selectedFamily = this.route.snapshot.params['modelFamily'];
-    
+
+    this.bigDealService.getVehiclesFromServer();
+
     this.familySubscription = this.bigDealService.vehiclesSubject.subscribe(
       (vehicles: any[]) => {
         console.log("chargement terminé");
@@ -38,11 +40,9 @@ export class CarFamilyComponent implements OnInit {
         //Create the array by the selected family
         this.modelFamilyArray = this.modelFamilyList.get(this.selectedFamily);
         console.log("familyList: "+this.modelFamilyList.get(this.selectedFamily).length);
-        this.count = this.modelFamilyArray.length;
 
       }
     );
   }
-  
 
 }
