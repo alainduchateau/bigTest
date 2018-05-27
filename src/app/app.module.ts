@@ -4,12 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { Routes } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
+
 
 import { AppComponent } from './app.component';
 import { bigDealService } from './services/bigDeal.service';
 import { ListComponent } from './list/list.component';
 import { SingleCarComponent } from './single-car/single-car.component';
 import { CarFamilyComponent } from './car-family/car-family.component';
+
 
 
 const appRoutes: Routes = [
@@ -25,13 +28,15 @@ const appRoutes: Routes = [
     AppComponent,
     ListComponent,
     SingleCarComponent,
-    CarFamilyComponent
+    CarFamilyComponent,
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
+    LoadingBarHttpClientModule
   ],
   providers: [bigDealService],
   bootstrap: [AppComponent]

@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { bigDealService } from '../services/bigDeal.service';
 import { Subscription } from 'rxjs/Subscription';
+import { LoadingBarService } from '@ngx-loading-bar/core';
+
 
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
+ 
 })
 export class ListComponent implements OnInit {
 
@@ -18,7 +21,7 @@ export class ListComponent implements OnInit {
 
   vehiclesSubscription: Subscription;
 
-  constructor(private bigDealService: bigDealService) { }
+  constructor(private bigDealService: bigDealService,private loadingBar: LoadingBarService) { }
 
   ngOnInit() {
     //Retrieve data from service
