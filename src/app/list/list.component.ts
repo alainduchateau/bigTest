@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { bigDealService } from '../services/bigDeal.service';
-<<<<<<< HEAD
-import { Subscription } from 'rxjs/Subscription';
 import { LoadingBarService } from '@ngx-loading-bar/core';
-
-=======
 import { Subscription } from 'rxjs';
->>>>>>> f1a23122c7b3521d19f249e3564d345d064dbd70
+
 
 
 @Component({
@@ -25,14 +21,11 @@ export class ListComponent implements OnInit {
 
   vehiclesSubscription: Subscription;
 
-<<<<<<< HEAD
+
   constructor(private bigDealService: bigDealService,private loadingBar: LoadingBarService) { }
-=======
-  constructor(private bigDealService: bigDealService) { 
-        //Retrieve data from service
-        this.bigDealService.getVehiclesFromServer();
-  }
->>>>>>> f1a23122c7b3521d19f249e3564d345d064dbd70
+
+
+
 
   ngOnInit() {
     //Listen the vechicle subjet, trigger the action after datas are loaded
