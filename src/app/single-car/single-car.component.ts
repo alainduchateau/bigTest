@@ -19,22 +19,19 @@ export class SingleCarComponent implements OnInit {
   marketingName:string;
 
   constructor(private bigDealService:bigDealService,private route: ActivatedRoute) {
-
+    //Retrieve data from service
     this.bigDealService.getVehiclesFromServer();
   }
 
   ngOnInit() {
-    //Retrieve data from service
-    
-
+    //Retrieve model reference from route
     this.modelReference = this.route.snapshot.params['modelReference'];
-    console.log( this.modelReference);
+    //Liste the http loader
     this.signleCarSubscription = this.bigDealService.vehiclesSubject.subscribe(
-      
       (vehicles: any[]) => {
         //Setup the variable to call the result later
         this.car = this.bigDealService.getCarById(this.modelReference);
-
+        //Retrieve marketing name
         this.marketingName = this.bigDealService.getRightModelName(this.bigDealService.dico,this.car.Model);
         console.log(this.marketingName);
       }
