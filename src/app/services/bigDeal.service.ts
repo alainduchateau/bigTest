@@ -168,42 +168,43 @@ groupBy(list, keyGetter) {
     },
     {
       key: "Veloster",
-      values: ['vel 4d v5a', 'vel 3d 14']
+      values: ['vel 4d v5a',
+               'vel 3d 14']
     },
     {
       key: "IONIQ",
       values: ['ion hv v6a',
-        'ion hv v7a',
-        'Ion HV V6a',
-        'Ion HV V7a'
+               'ion hv v7a',
+               'Ion HV V6a',
+               'Ion HV V7a'
       ]
     },
     {
       key: "i40 Sedan",
       values: ['i40 sedan',
-        'i40 4d 13',
-        'i40 4d 14',
-        'i40 4d go',
-        'i40 4d',
-        'i40 4d v5a',
-        'i40 4d v6a',
-        'i40 5d V5a',
-        'i40 4d V6a',
-        'i40 sedan V6a'
+              'i40 4d 13',
+              'i40 4d 14',
+              'i40 4d go',
+              'i40 4d',
+              'i40 4d v5a',
+              'i40 4d v6a',
+              'i40 5d V5a',
+              'i40 4d V6a',
+              'i40 sedan V6a'
       ]
     },
     {
       key: "i40 Wagon",
       values: ['i40 w 12',
-        'i40 w 13',
-        'i40 w 14',
-        'i40 5d v5a',
-        'i40 5d 13',
-        'i40 5d',
-        'i40 5d go',
-        'i40 5d v6a',
-        'i40 wagon V5a',
-        'i40 5d V6a'
+              'i40 w 13',
+              'i40 w 14',
+              'i40 5d v5a',
+              'i40 5d 13',
+              'i40 5d',
+              'i40 5d go',
+              'i40 5d v6a',
+              'i40 wagon V5a',
+              'i40 5d V6a'
       ]
     },
     {
@@ -258,7 +259,7 @@ groupBy(list, keyGetter) {
 /**
  * 
  * 
- * @param {any} dictionnary  the array with the vehicle list
+ * @param {any} dictionnary  the array with the internal naming convention
  * @param {any} modelName the model you search a marketing name
  * @returns 
  * @memberof bigDealService

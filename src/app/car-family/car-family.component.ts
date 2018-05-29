@@ -26,11 +26,11 @@ export class CarFamilyComponent implements OnInit {
   }
 
   ngOnInit() {
+    //Capture of the family name in the URL
     this.selectedFamily = this.route.snapshot.params['modelFamily'];
-    
+    //Listening of the request
     this.familySubscription = this.bigDealService.vehiclesSubject.subscribe(
       (vehicles: any[]) => {
-        console.log("chargement terminé");
         //Setup the variable to call the result later
         this.listVehicles = vehicles;
         //Create map with filtered array by marketing name of each model
