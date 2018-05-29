@@ -37,9 +37,8 @@ export class CarFamilyComponent implements OnInit {
         this.modelFamilyList = this.bigDealService.groupBy(this.listVehicles, car => car.marketingName); 
         //Create the array by the selected family
         this.modelFamilyArray = this.modelFamilyList.get(this.selectedFamily);
-        console.log("familyList: "+this.modelFamilyList.get(this.selectedFamily).length);
+        //Count family membre
         this.count = this.modelFamilyArray.length;
-
       }
     );
   }
