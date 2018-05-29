@@ -31,11 +31,7 @@ export class SingleCarComponent implements OnInit {
       (vehicles: any[]) => {
         //Setup the variable to call the result later
         this.car = this.bigDealService.getCarById(this.modelReference);
-<<<<<<< HEAD
         //Find the marketing name of this car
-=======
-        //Retrieve marketing name
->>>>>>> 1340b9ebcb136403d6b9b13ac9a7b1913a08c64c
         this.marketingName = this.bigDealService.getRightModelName(this.bigDealService.dico,this.car.Model);
       }
     );
