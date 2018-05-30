@@ -1,21 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 #loaderBkg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: white;
-  z-index: 1000;
-  opacity: 0.9;
+  position        : absolute;
+  width           : 100%;
+  height          : 100%;
+  overflow        : hidden;
+  background      : white;
+  z-index         : 1000;
+  opacity         : 0.9;
 }
 
 #loaderLogo{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100px;
-  height: 100px;
-  margin-top: -50px; /* Half the height */
-  margin-left: -50px; /* Half the width */
-  z-index: 1001;
+  position        : absolute;
+  top             : 50%;
+  left            : 50%;
+  width           : 100px;
+  height          : 100px;
+  margin-top      : -50px; /* Half the height */
+  margin-left     : -50px; /* Half the width */
+  z-index         : 1001;
+}
+
+#loaderCount{
+  margin-top      : 10%;
+  margin-left     : 15px;
+  text-align      : left;
+  color           :rgb(0, 111, 203);;
+  font-size       : 13px;
 }
