@@ -1,22 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
-#hero-image {
+#loaderBkg {
   position: absolute;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: red;
-  z-index: 10000;
+  background: white;
+  z-index: 1000;
+  opacity: 0.9;
 }
 
-#hero-image img {
+#loaderLogo{
   position: absolute;
-  min-height: 100%;
-  height: auto;
-  min-width: 100%;
-  width: auto;
-  margin: auto;
-  right: 0;
-  left: 0;
-  top: 0;
-  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px; /* Half the height */
+  margin-left: -50px; /* Half the width */
+  z-index: 1001;
 }
