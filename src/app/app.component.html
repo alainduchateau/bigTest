@@ -6,11 +6,15 @@
 </head>
 
 <body>
-    <span *ngIf="loaded">
-        Loaded, or not Loaded
-      </span>
-  <ng-progress></ng-progress>
+
  
+  <ng-progress></ng-progress>
+
+  <span *ngIf="loading">
+    Loading in progress
+  </span>
+
+
   <div class="container" style="margin-top:50px;">
 
     <div>

@@ -8,16 +8,23 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+
+  //Instance of NgProgressRef
   progressRef: NgProgressRef;
+  //Instance of subscription
   loadingSubscription: Subscription;
-  loaded:any;
+  //Init var used by the template for display the custom loader ( logo fullscreen )
+  loading:boolean;
+
   constructor(private ngProgress: NgProgress) {
+    //var retrieving .ref -> reference of NgProgress
     this.progressRef = this.ngProgress.ref();
+    //Initialize listener for the loader changing state
     this.loadingSubscription = this.progressRef.state$.subscribe(
+      //"completed" object return
       (completed) => {
-        this.loaded = completed.active;
-        console.log(this.loaded);
+        //retrieve value of object "completed" with the "active" property 
+        this.loading = completed.active;
     })
 
   }
