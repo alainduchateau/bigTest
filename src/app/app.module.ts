@@ -6,7 +6,8 @@ import { RouterModule } from '@angular/router';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
 import { AppComponent } from './app.component';
 import { bigDealService } from './services/bigDeal.service';
 import { ListComponent } from './list/list.component';
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,

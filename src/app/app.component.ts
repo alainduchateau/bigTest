@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgProgress, NgProgressRef } from '@ngx-progressbar/core';
 import { Subscription } from 'rxjs';
 import { copyConfig } from '@angular/router/src/config';
+import { trigger,state,style,transition,animate,keyframes } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
