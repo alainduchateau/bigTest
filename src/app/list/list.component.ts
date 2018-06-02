@@ -38,8 +38,10 @@ export class ListComponent implements OnInit {
   }
 
  listyByModels(carList) {
-    this.sortedByFamilies = this.bigDealService.groupBy(this.listVehicles, car => car.marketingName);
+    this.sortedByFamilies = this.bigDealService.groupBy(carList, car => car.marketingName);
+    console.log(carList.filter(car => car.BigDealPrice < 20000));
     this.carFamilies = Array.from(this.sortedByFamilies.keys());
+   
   }
 
   sumByModel(selectedModel){

@@ -27,6 +27,7 @@ getVehiclesFromServer() {
       .subscribe(
         (response) => {
           this.vehicles = response;
+          this.convertString(this.vehicles)
           this.emitVehiclesSubject();
         },
         (error) => {
@@ -37,7 +38,21 @@ getVehiclesFromServer() {
 
 
 /**
- * 
+ * Convert string in array to int type
+ *
+ * @param {*} list to treat 
+ * @memberof bigDealService
+ */
+convertString(list){
+    list.forEach(car => {
+      car.BigDealPrice    = parseInt(car.BigDealPrice);
+      car.CataloguePrice  = parseInt(car.CataloguePrice);
+      car.Motorisation    = parseInt(car.Motorisation);
+    })
+  }
+
+/**
+ * Retrieve a specific car by this unique reference
  * 
  * @param {string} reference 
  * @returns object represent a car
@@ -51,7 +66,7 @@ getCarById(reference: string) {
     return singleCar;
   }
 /**
- * 
+ * Group list by a specific key ( ex: marketing name )
  * 
  * @param {any} list  list to filter (Array)
  * @param {any} keyGetter  the filter you want, a property present in the list (string)
@@ -256,7 +271,7 @@ groupBy(list, keyGetter) {
     }
   ];
 /**
- * 
+ * Find the marketing name of a model by reading of dictionnary
  * 
  * @param {any} dictionnary  the array with the internal naming convention
  * @param {any} modelName the model you search a marketing name

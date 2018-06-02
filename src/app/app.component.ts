@@ -30,7 +30,7 @@ export class AppComponent {
       (completed) => {
         //retrieve value of object "completed" with the "true" property 
         this.loading = completed.active;
-        console.log(this.loading);
+       // console.log(this.loading);
         //retrieve percentage of loading in object "completed" 
         this.percent = completed.value;
     })
