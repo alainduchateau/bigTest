@@ -31,16 +31,18 @@ export class ListComponent implements OnInit {
         this.listVehicles = vehicles;
         // Group the model by the marketing name
         this.listyByModels(this.listVehicles);
-        // Count the total of vehicles in list
-        this.count = this.listVehicles.length;
+       
       }
     );
   }
 
  listyByModels(carList) {
+    carList = carList.filter(car => car.BigDealPrice < 15000);
     this.sortedByFamilies = this.bigDealService.groupBy(carList, car => car.marketingName);
-    console.log(carList.filter(car => car.BigDealPrice < 20000));
+    //carList.filter(car => car.BigDealPrice < 20000);
     this.carFamilies = Array.from(this.sortedByFamilies.keys());
+     // Count the total of vehicles in list
+     this.count = carList.length;
    
   }
 
