@@ -17,6 +17,7 @@ export class ListComponent implements OnInit {
   carFamilies: any[];
   count: number;
   sortedByFamilies: any;
+  price:number = 35000;
   
 
   vehiclesSubscription: Subscription;
@@ -93,10 +94,13 @@ selectCarType(param:string){
         break;
     default:
         this.listVehicles = this.referencVehiclesList;
-}
+  }
 this.count = this.listVehicles.length;
-  
-console.log("selectCarType "+param);
+
+}
+
+priceFilter(param:number){
+  console.log(param);
 }
   
 
