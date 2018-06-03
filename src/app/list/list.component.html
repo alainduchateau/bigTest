@@ -16,6 +16,12 @@
     <option value="secondHand">second hand</option>
   </select>
   
+  <select id="carFuelSelector" class="form-control" name="carFuelSelector" ngModel on-change="selectFuelType($event.target.value)">
+      <option value="all" selected>all</option>
+      <option value="diesel">Diesel</option>
+      <option value="gasoline">gasoline</option>
+    </select>
+
   <ul>
     <li *ngFor="let car of listVehicles">
       {{ car.Reference }}
