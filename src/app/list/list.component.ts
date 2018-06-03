@@ -98,9 +98,15 @@ selectCarType(param:string){
 this.count = this.listVehicles.length;
 
 }
-
+/**
+ *Filter by bigDeal price
+ *
+ * @param {number} param => maximum price for the car
+ * @memberof ListComponent
+ */
 priceFilter(param:number){
-  console.log(param);
+  this.listVehicles = this.referencVehiclesList.filter(car => car.BigDealPrice <= param);
+  this.count = this.listVehicles.length;
 }
   
 
