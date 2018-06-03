@@ -3,6 +3,7 @@ import { bigDealService } from '../services/bigDeal.service';
 import { Subscription } from 'rxjs';
 
 
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
