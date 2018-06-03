@@ -8,21 +8,26 @@
   <h5>{{count}} cars loaded in the list</h5>
 </div>
 
-  <div class="container">
-<!--
-      <ul>
-          <li *ngFor="let car of listVehicles">
-            {{ car.Reference }}
-          </li>
-        </ul>
--->
-      <table>
-          <div *ngFor="let carModel of carFamilies">
-           <div class="col-lg-12"><a routerLink="/family/{{carModel}}">{{carModel}} ({{ sumByModel(carModel) }})</a>
-          </div>
-          </div>
-        </table>
+<div class="container">
 
-      </div>
+  <select id="carTypeSelector" class="form-control" name="carTypeSelector" ngModel on-change="selectCarType($event.target.value)">
+    <option value="all" selected>all</option>
+    <option value="new">new</option>
+    <option value="secondHand">second hand</option>
+  </select>
   
-    
+  <ul>
+    <li *ngFor="let car of listVehicles">
+      {{ car.Reference }}
+    </li>
+  </ul>
+  -->
+  <table>
+    <div *ngFor="let carModel of carFamilies">
+      <div class="col-lg-12">
+        <a routerLink="/family/{{carModel}}">{{carModel}} ({{ sumByModel(carModel) }})</a>
+      </div>
+    </div>
+  </table>
+
+</div>

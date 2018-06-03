@@ -15,6 +15,7 @@ export class ListComponent implements OnInit {
   carFamilies: any[];
   count: number;
   sortedByFamilies: any;
+  
 
   vehiclesSubscription: Subscription;
 
@@ -49,6 +50,11 @@ export class ListComponent implements OnInit {
   sumByModel(selectedModel){
     return(this.sortedByFamilies.get(selectedModel).length);
   }
+
+  selectCarType(param){
+    console.log("selectCarType "+param);
+  }
+  
 
 }
 
