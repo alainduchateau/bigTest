@@ -8,6 +8,7 @@ import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlider, MatSliderModule } from '@angular/material'
+
  
 import { AppComponent } from './app.component';
 import { bigDealService } from './services/bigDeal.service';
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     NgProgressModule.forRoot(),
     NgProgressHttpModule,
+   
   ],
   providers: [bigDealService],
   bootstrap: [AppComponent]

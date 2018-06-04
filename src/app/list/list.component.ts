@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { bigDealService } from '../services/bigDeal.service';
 import { Subscription } from 'rxjs';
+import { Pipe, PipeTransform } from '@angular/core';
+
 
 
 
@@ -73,7 +75,7 @@ selectFuelType(param:string){
       default:
           this.listVehicles = this.referencVehiclesList;
   }
-  this.count = this.listVehicles.length;
+  this.listyByModels(this.listVehicles)
     
   console.log("selectCarType "+param);
   }
@@ -95,7 +97,7 @@ selectCarType(param:string){
     default:
         this.listVehicles = this.referencVehiclesList;
   }
-this.count = this.listVehicles.length;
+  this.listyByModels(this.listVehicles)
 
 }
 /**
@@ -106,9 +108,8 @@ this.count = this.listVehicles.length;
  */
 priceFilter(param:number){
   this.listVehicles = this.referencVehiclesList.filter(car => car.BigDealPrice <= param);
-  this.count = this.listVehicles.length;
+   this.listyByModels(this.listVehicles)
 }
-  
-
+OrderFilter="BigDealPrice";
 }
 

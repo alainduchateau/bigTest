@@ -35,11 +35,12 @@
     </mat-slider>
 
   <ul>
-    <li *ngFor="let car of listVehicles">
+    <li *ngFor="let car of listVehicles | orderBy:OrderFilter" >
       {{ car.Reference }}
     </li>
   </ul>
-  -->
+
+ <!--
   <table>
     <div *ngFor="let carModel of carFamilies">
       <div class="col-lg-12">
@@ -47,5 +48,5 @@
       </div>
     </div>
   </table>
-
+ -->
 </div>
