@@ -1,5 +1,5 @@
 <h2>Welcome on the bigDeal !</h2>
-
+<div>{{booleanValue}} is now tranformed to {{booleanValue | questionableBoolean}}</div>
 <div *ngIf="!listVehicles" class="alert alert-error box-msg">
   <h5>loadgin vehicles</h5>
 </div>
@@ -35,7 +35,7 @@
     </mat-slider>
 
   <ul>
-    <li *ngFor="let car of listVehicles | orderBy:OrderFilter" >
+    <li *ngFor="let car of listVehicles" >
       {{ car.Reference }}
     </li>
   </ul>

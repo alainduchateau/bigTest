@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { bigDealService } from '../services/bigDeal.service';
 import { Subscription } from 'rxjs';
-import { Pipe, PipeTransform } from '@angular/core';
-
-
-
 
 @Component({
   selector: 'app-list',
@@ -20,7 +16,7 @@ export class ListComponent implements OnInit {
   count: number;
   sortedByFamilies: any;
   price:number = 35000;
-  
+  booleanValue: boolean = true;
 
   vehiclesSubscription: Subscription;
 

@@ -15,6 +15,7 @@ import { bigDealService } from './services/bigDeal.service';
 import { ListComponent } from './list/list.component';
 import { SingleCarComponent } from './single-car/single-car.component';
 import { CarFamilyComponent } from './car-family/car-family.component';
+import { QuestionableBooleanPipe } from './pipes/questionableBoolean.pipe';
 
 
 const appRoutes: Routes = [
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     AppComponent,
     ListComponent,
     SingleCarComponent,
-    CarFamilyComponent
+    CarFamilyComponent,
+    QuestionableBooleanPipe
   ],
   imports: [
     MatSliderModule,
@@ -40,8 +42,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     NgProgressModule.forRoot(),
-    NgProgressHttpModule,
-   
+    NgProgressHttpModule,   
   ],
   providers: [bigDealService],
   bootstrap: [AppComponent]
