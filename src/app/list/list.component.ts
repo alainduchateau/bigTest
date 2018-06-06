@@ -18,6 +18,8 @@ export class ListComponent implements OnInit {
   price:number = 35000;
   booleanValue: boolean = true;
   fuelType:string
+  displayModel:number;
+  carType:string;
 
   vehiclesSubscription: Subscription;
 
@@ -90,18 +92,21 @@ selectFuelType(param:string){
  * @memberof ListComponent
  */
 selectCarType(param:string){
+
+  var output:string;
+  
   switch(param) {
     case "secondHand":
-        this.listVehicles = this.referencVehiclesList.filter(car => car.FirstImmatDate);
+        output = "secondHand";
         break;
     case "new":
-        this.listVehicles = this.referencVehiclesList.filter(car => !car.FirstImmatDate);
+        output = "New";
         break;
     default:
-        this.listVehicles = this.referencVehiclesList;
+        output = "All";
   }
-  this.listyByModels(this.listVehicles)
-
+  this.carType=output;
+  return output;
 }
 /**
  *Filter by bigDeal price

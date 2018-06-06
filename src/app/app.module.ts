@@ -17,6 +17,7 @@ import { CarFamilyComponent } from './car-family/car-family.component';
 import { QuestionableBooleanPipe } from './pipes/questionableBoolean.pipe';
 import { GroupByPipe } from './pipes/groupBy.pipe';
 import { sortByFuelPipe } from './pipes/sortByFuel.pipe';
+import { sortByCarTypePipe } from './pipes/sortByCarType.pipe';
 
 
 const appRoutes: Routes = [
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     CarFamilyComponent,
     QuestionableBooleanPipe,
     GroupByPipe,
-    sortByFuelPipe
+    sortByFuelPipe,
+    sortByCarTypePipe
   ],
   imports: [
     MatSliderModule,

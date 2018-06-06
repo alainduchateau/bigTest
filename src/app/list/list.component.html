@@ -10,7 +10,7 @@
 
 <div class="container">
 
-  <select id="carTypeSelector" class="form-control" name="carTypeSelector" ngModel (change)="selectCarType($event.target.value)">
+  <select [ngModel]="carType" id="carTypeSelector" class="form-control" name="carTypeSelector" ngModel (change)="selectCarType($event.target.value)">
     <option value="all" selected>all</option>
     <option value="new">new</option>
     <option value="secondHand">second hand</option>
@@ -35,8 +35,8 @@
     </mat-slider>
 
   <ul>
-    <li *ngFor="let car of listVehicles | sortByFuel:fuelType | groupBy:'marketingName' " >
-      <b>{{ car.key }}</b> {{sumByModel(car)}}
+    <li *ngFor="let car of listVehicles | sortByCarType:carType | sortByFuel:fuelType | groupBy:'marketingName' as displayTable ">
+      <a href="family/{{car.key}}"><b>{{ car.key }}</b> {{sumByModel(car)}}</a>
     </li>
   </ul>
 

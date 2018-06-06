@@ -8,11 +8,10 @@ export class sortByFuelPipe implements PipeTransform {
       return null;
     }
 
-    if (!property) {
+    if (!property || property ==="all") {
       return collection;
     } else {
       var filteredCollection = collection.filter(car => car.FuelCode === property);
-      //console.log(collection);
       return filteredCollection;
     }
 
