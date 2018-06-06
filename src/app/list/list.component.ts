@@ -17,6 +17,7 @@ export class ListComponent implements OnInit {
   sortedByFamilies: any;
   price:number = 35000;
   booleanValue: boolean = true;
+  fuelType:string
 
   vehiclesSubscription: Subscription;
 
@@ -46,13 +47,14 @@ export class ListComponent implements OnInit {
     this.carFamilies = Array.from(this.sortedByFamilies.keys());
      // Count the total of vehicles in list
      this.count = carList.length;
-     console.log(carList);
+     //console.log(carList);
 
    
   }
 
   sumByModel(selectedModel){
-    return(this.sortedByFamilies.get(selectedModel).length);
+    //console.log(selectedModel);
+    return(selectedModel.value.length);
   }
 /**
  * Filter the list by fuel type
@@ -61,6 +63,7 @@ export class ListComponent implements OnInit {
  * @memberof ListComponent
  */
 selectFuelType(param:string){
+  /*
     switch(param) {
       case "diesel":
           this.listVehicles = this.referencVehiclesList.filter(car => car.FuelCode === "diesel");
@@ -72,8 +75,12 @@ selectFuelType(param:string){
           this.listVehicles = this.referencVehiclesList;
   }
   this.listyByModels(this.listVehicles)
+  
+  */ 
+  this.fuelType = param;
+  return this.fuelType;
     
-  console.log("selectCarType "+param);
+  //console.log("selectCarType "+param);
   }
 
 /**

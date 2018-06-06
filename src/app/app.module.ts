@@ -9,13 +9,14 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlider, MatSliderModule } from '@angular/material'
 
- 
 import { AppComponent } from './app.component';
 import { bigDealService } from './services/bigDeal.service';
 import { ListComponent } from './list/list.component';
 import { SingleCarComponent } from './single-car/single-car.component';
 import { CarFamilyComponent } from './car-family/car-family.component';
 import { QuestionableBooleanPipe } from './pipes/questionableBoolean.pipe';
+import { GroupByPipe } from './pipes/groupBy.pipe';
+import { sortByFuelPipe } from './pipes/sortByFuel.pipe';
 
 
 const appRoutes: Routes = [
@@ -32,7 +33,9 @@ const appRoutes: Routes = [
     ListComponent,
     SingleCarComponent,
     CarFamilyComponent,
-    QuestionableBooleanPipe
+    QuestionableBooleanPipe,
+    GroupByPipe,
+    sortByFuelPipe
   ],
   imports: [
     MatSliderModule,
