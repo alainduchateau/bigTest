@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { bigDealService } from '../services/bigDeal.service';
 import { Subscription } from 'rxjs';
+import { filteringService } from "../services/filtering.service";
 
 @Component({
   selector: 'app-list',
@@ -23,7 +24,7 @@ export class ListComponent implements OnInit {
 
   vehiclesSubscription: Subscription;
 
-  constructor(private bigDealService: bigDealService) { 
+  constructor(private bigDealService: bigDealService, private filteringService:filteringService) { 
         //Retrieve data from service
         this.bigDealService.getVehiclesFromServer();
   }
@@ -37,10 +38,17 @@ export class ListComponent implements OnInit {
         this.listVehicles = vehicles;
         // Group the model by the marketing name
         this.listyByModels(this.listVehicles);
-       
+        
+        this.setFuelType("essence");
       }
     );
   }
+
+setFuelType(param){
+  this.filteringService.setFuelType(param);
+}
+
+
 
  listyByModels(carList) {
     //carList = carList.filter(car => !car.FirstImmatDate);
@@ -58,32 +66,7 @@ export class ListComponent implements OnInit {
     //console.log(selectedModel);
     return(selectedModel.value.length);
   }
-/**
- * Filter the list by fuel type
- *
- * @param {string} param => type fuel : diesle, benzine
- * @memberof ListComponent
- */
-selectFuelType(param:string){
-  /*
-    switch(param) {
-      case "diesel":
-          this.listVehicles = this.referencVehiclesList.filter(car => car.FuelCode === "diesel");
-          break;
-      case "gasoline":
-          this.listVehicles = this.referencVehiclesList.filter(car => car.FuelCode === "gasoline");
-          break;
-      default:
-          this.listVehicles = this.referencVehiclesList;
-  }
-  this.listyByModels(this.listVehicles)
-  
-  */ 
-  this.fuelType = param;
-  return this.fuelType;
-    
-  //console.log("selectCarType "+param);
-  }
+
 
 /**
  * Filter the list by car type

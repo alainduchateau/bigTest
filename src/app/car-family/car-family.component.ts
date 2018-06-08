@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { bigDealService } from '../services/bigDeal.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { filteringService } from "../services/filtering.service";
 
 @Component({
   selector: 'app-car-family',
@@ -19,9 +20,11 @@ export class CarFamilyComponent implements OnInit {
   listVehicles:any;
   selectedFamily:any;
 
+  fuelType:string;
+
   familySubscription: Subscription;
 
-  constructor(private bigDealService: bigDealService, private route: ActivatedRoute) {
+  constructor(private bigDealService: bigDealService, private route: ActivatedRoute, private filteringService:filteringService) {
     this.bigDealService.getVehiclesFromServer();
   }
 
@@ -39,6 +42,8 @@ export class CarFamilyComponent implements OnInit {
         this.modelFamilyArray = this.modelFamilyList.get(this.selectedFamily);
         //Count family membre
         this.count = this.modelFamilyArray.length;
+
+        this.fuelType = localStorage.getItem("fuelType");
       }
     );
   }

@@ -11,6 +11,7 @@ import { MatSlider, MatSliderModule } from '@angular/material'
 
 import { AppComponent } from './app.component';
 import { bigDealService } from './services/bigDeal.service';
+import { filteringService } from './services/filtering.service';
 import { ListComponent } from './list/list.component';
 import { SingleCarComponent } from './single-car/single-car.component';
 import { CarFamilyComponent } from './car-family/car-family.component';
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
     GroupByPipe,
     sortByFuelPipe,
     sortByCarTypePipe
+    
   ],
   imports: [
     MatSliderModule,
@@ -47,9 +49,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     NgProgressModule.forRoot(),
-    NgProgressHttpModule,   
+    NgProgressHttpModule,
+       
   ],
-  providers: [bigDealService],
+  providers: [bigDealService,filteringService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
