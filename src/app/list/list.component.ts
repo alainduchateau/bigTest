@@ -38,7 +38,7 @@ export class ListComponent implements OnInit {
         this.listVehicles = vehicles;
         // Group the model by the marketing name
         this.listyByModels(this.listVehicles);
-        
+
         this.setFuelType("essence");
       }
     );
@@ -89,6 +89,7 @@ selectCarType(param:string){
         output = "All";
   }
   this.carType=output;
+  
   return output;
 }
 /**
