@@ -23,22 +23,26 @@
   </select>
   
     <mat-slider min="10000"
-                max="35000" 
+                max="45000" 
                 step="1000" 
                 value="12000" 
                 thumbLabel 
                 width= 400
                 tickInterval="1000" 
-                [(ngModel)]="price" 
-                (change)="priceFilter($event.value)">
+                [(ngModel)]="filteringService.maxPrice" 
+                (change)="filteringService.priceFilter($event.value)">
                 {{price}}
     </mat-slider>
-
+<ng-container *ngIf="(listVehicles | sortByCarType:filteringService.carType | sortByFuel:filteringService.fuelType | filterByPrice:filteringService.maxPrice ) as result">
   <ul>
-    <li *ngFor="let car of listVehicles | sortByCarType:filteringService.carType | sortByFuel:filteringService.fuelType | groupBy:'marketingName' as displayTable ">
+    <li *ngFor="let car of result | groupBy:'marketingName' ">
       <a href="family/{{car.key}}"><b>{{ car.key }}</b> {{sumByModel(car)}}</a>
     </li>
-  </ul>
+</ul>
+{{result.length}}
+  </ng-container>
+  
+
 
  <!--
   <table>

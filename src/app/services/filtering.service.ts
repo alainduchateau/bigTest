@@ -7,7 +7,7 @@ export class filteringService {
   fuelType    : string;
   displayModel: number;
   carType     : string;
-  maxPrice    : string;
+  maxPrice    : number = 45000;
 
   /**
   * Filter the list by fuel type
@@ -46,7 +46,7 @@ export class filteringService {
 
     localStorage.setItem('carType', output);
 
-    return output;
+    return this.carType;
   }
 
   /**
@@ -56,8 +56,10 @@ export class filteringService {
  * @memberof ListComponent
  */
 priceFilter(maxPrice:number){
-  this.maxPrice =  String(maxPrice);
-  localStorage.setItem('maxPrice',this.maxPrice);
+
+  localStorage.setItem('maxPrice',String(maxPrice));
+  this.maxPrice = maxPrice;
+  return this.maxPrice;
 }
 
   

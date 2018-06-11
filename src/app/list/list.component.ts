@@ -16,11 +16,7 @@ export class ListComponent implements OnInit {
   carFamilies: any[];
   count: number;
   sortedByFamilies: any;
-  price:number = 35000;
-  booleanValue: boolean = true;
-  fuelType:string
-  displayModel:number;
-  carType:string;
+
 
   vehiclesSubscription: Subscription;
 
@@ -38,18 +34,9 @@ export class ListComponent implements OnInit {
         this.listVehicles = vehicles;
         // Group the model by the marketing name
         this.listyByModels(this.listVehicles);
-
-        //this.setFuelType("essence");
       }
     );
   }
-
-  /*
-setFuelType(param){
-  this.filteringService.setFuelType(param);
-}
-*/
-
 
  listyByModels(carList) {
     //carList = carList.filter(car => !car.FirstImmatDate);
@@ -69,17 +56,6 @@ setFuelType(param){
   }
 
 
-
-/**
- *Filter by bigDeal price
- *
- * @param {number} param => maximum price for the car
- * @memberof ListComponent
- */
-priceFilter(param:number){
-  this.listVehicles = this.referencVehiclesList.filter(car => car.BigDealPrice <= param);
-  this.listyByModels(this.listVehicles)
-}
 OrderFilter="BigDealPrice";
 }
 
