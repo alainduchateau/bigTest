@@ -39,15 +39,16 @@ export class ListComponent implements OnInit {
         // Group the model by the marketing name
         this.listyByModels(this.listVehicles);
 
-        this.setFuelType("essence");
+        //this.setFuelType("essence");
       }
     );
   }
 
+  /*
 setFuelType(param){
   this.filteringService.setFuelType(param);
 }
-
+*/
 
 
  listyByModels(carList) {
@@ -68,30 +69,7 @@ setFuelType(param){
   }
 
 
-/**
- * Filter the list by car type
- *
- * @param {string} param => type of car : secondHand, new
- * @memberof ListComponent
- */
-selectCarType(param:string){
 
-  var output:string;
-  
-  switch(param) {
-    case "secondHand":
-        output = "secondHand";
-        break;
-    case "new":
-        output = "New";
-        break;
-    default:
-        output = "All";
-  }
-  this.carType=output;
-  
-  return output;
-}
 /**
  *Filter by bigDeal price
  *
@@ -100,7 +78,7 @@ selectCarType(param:string){
  */
 priceFilter(param:number){
   this.listVehicles = this.referencVehiclesList.filter(car => car.BigDealPrice <= param);
-   this.listyByModels(this.listVehicles)
+  this.listyByModels(this.listVehicles)
 }
 OrderFilter="BigDealPrice";
 }

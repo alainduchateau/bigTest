@@ -19,6 +19,7 @@ import { QuestionableBooleanPipe } from './pipes/questionableBoolean.pipe';
 import { GroupByPipe } from './pipes/groupBy.pipe';
 import { sortByFuelPipe } from './pipes/sortByFuel.pipe';
 import { sortByCarTypePipe } from './pipes/sortByCarType.pipe';
+import { filterByPricePipe} from './pipes/filterByPrice.pipe';
 
 
 const appRoutes: Routes = [
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     QuestionableBooleanPipe,
     GroupByPipe,
     sortByFuelPipe,
-    sortByCarTypePipe
+    sortByCarTypePipe,
+    filterByPricePipe
     
   ],
   imports: [

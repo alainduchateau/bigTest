@@ -10,7 +10,7 @@
 
 <div class="container">
 
-  <select [ngModel]="carType" id="carTypeSelector" class="form-control" name="carTypeSelector" ngModel (change)="selectCarType($event.target.value)">
+  <select [ngModel]="filteringService.carType" id="carTypeSelector" class="form-control" name="carTypeSelector" ngModel (change)="filteringService.selectCarType($event.target.value)">
     <option value="all" selected>all</option>
     <option value="new">new</option>
     <option value="secondHand">second hand</option>
@@ -21,7 +21,7 @@
       <option value="diesel">Diesel</option>
       <option value="gasoline">gasoline</option>
   </select>
-{{filteringService.fuelType}}
+  
     <mat-slider min="10000"
                 max="35000" 
                 step="1000" 
@@ -35,7 +35,7 @@
     </mat-slider>
 
   <ul>
-    <li *ngFor="let car of listVehicles | sortByCarType:carType | sortByFuel:filteringService.fuelType | groupBy:'marketingName' as displayTable ">
+    <li *ngFor="let car of listVehicles | sortByCarType:filteringService.carType | sortByFuel:filteringService.fuelType | groupBy:'marketingName' as displayTable ">
       <a href="family/{{car.key}}"><b>{{ car.key }}</b> {{sumByModel(car)}}</a>
     </li>
   </ul>
