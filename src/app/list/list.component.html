@@ -1,10 +1,10 @@
 <h2>Welcome on the bigDeal !</h2>
-<div>{{booleanValue}} is now tranformed to {{booleanValue | questionableBoolean}}</div>
+
 <div *ngIf="!listVehicles" class="alert alert-error box-msg">
   <h5>loadgin vehicles</h5>
 </div>
 
-<div *ngIf="listVehicles" class="alert alert-success box-msg">
+<div *ngIf="listVehicles">
   <h5>{{count}} cars loaded in the list</h5>
 </div>
 
@@ -33,24 +33,33 @@
                 (change)="filteringService.priceFilter($event.value)">
                 {{price}}
     </mat-slider>
+
+    
 <ng-container *ngIf="(listVehicles | sortByCarType:filteringService.carType | sortByFuel:filteringService.fuelType | filterByPrice:filteringService.maxPrice ) as result">
+  
+  <div *ngIf="result.length>0; else elseBlock" class="alert alert-success" >
+      {{result.length}} vehicles in your selection
+  </div>
+
+  <ng-template #elseBlock>
+    <div class="alert alert-warning">
+        No vehicle matches with your selection
+    </div>
+  </ng-template>
+
   <ul>
     <li *ngFor="let car of result | groupBy:'marketingName' ">
       <a href="family/{{car.key}}"><b>{{ car.key }}</b> {{sumByModel(car)}}</a>
     </li>
 </ul>
-{{result.length}}
+
   </ng-container>
   
 
 
  <!--
   <table>
-    <div *ngFor="let carModel of carFamilies">
-      <div class="col-lg-12">
-        <a routerLink="/family/{{carModel}}">{{carModel}} ({{ sumByModel(carModel) }})</a>
-      </div>
-    </div>
+   
   </table>
  -->
 </div>
