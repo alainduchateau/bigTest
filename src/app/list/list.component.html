@@ -15,49 +15,43 @@
     <option value="new">new</option>
     <option value="secondHand">second hand</option>
   </select>
-  
+
   <select [ngModel]="filteringService.fuelType" id="carFuelSelector" class="form-control" name="carFuelSelector" (change)="filteringService.selectFuelType($event.target.value)">
-      <option value="all" selected>all</option>
-      <option value="diesel">Diesel</option>
-      <option value="gasoline">gasoline</option>
+    <option value="all" selected>all</option>
+    <option value="diesel">Diesel</option>
+    <option value="gasoline">gasoline</option>
   </select>
-  
-    <mat-slider min="10000"
-                max="45000" 
-                step="1000" 
-                value="12000" 
-                thumbLabel 
-                width= 400
-                tickInterval="1000" 
-                [(ngModel)]="filteringService.maxPrice" 
-                (change)="filteringService.priceFilter($event.value)">
-                {{price}}
-    </mat-slider>
 
-    
-<ng-container *ngIf="(listVehicles | sortByCarType:filteringService.carType | sortByFuel:filteringService.fuelType | filterByPrice:filteringService.maxPrice ) as result">
-  
-  <div *ngIf="result.length>0; else elseBlock" class="alert alert-success" >
+  <mat-slider min="10000" max="45000" step="1000" value="12000" thumbLabel width=4 00 tickInterval="1000" [(ngModel)]="filteringService.maxPrice"
+    (change)="filteringService.priceFilter($event.value)">
+
+  </mat-slider>
+
+
+  <ng-container *ngIf="(listVehicles | sortByCarType:filteringService.carType | sortByFuel:filteringService.fuelType | filterByPrice:filteringService.maxPrice ) as result">
+
+    <div *ngIf="result.length>0; else elseBlock" class="alert alert-success">
       {{result.length}} vehicles in your selection
-  </div>
-
-  <ng-template #elseBlock>
-    <div class="alert alert-warning">
-        No vehicle matches with your selection
     </div>
-  </ng-template>
 
-  <ul>
-    <li *ngFor="let car of result | groupBy:'marketingName' ">
-      <a href="family/{{car.key}}"><b>{{ car.key }}</b> {{sumByModel(car)}}</a>
-    </li>
-</ul>
+    <ng-template #elseBlock>
+      <div class="alert alert-warning">
+        No vehicle matches with your selection
+      </div>
+    </ng-template>
+
+    <ul>
+      <li *ngFor="let car of result | groupBy:'marketingName' ">
+        <a href="family/{{car.key}}">
+          <b>{{ car.key }}</b> {{sumByModel(car)}}</a>
+      </li>
+    </ul>
 
   </ng-container>
-  
 
 
- <!--
+
+  <!--
   <table>
    
   </table>

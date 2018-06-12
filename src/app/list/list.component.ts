@@ -20,7 +20,7 @@ export class ListComponent implements OnInit {
 
   vehiclesSubscription: Subscription;
 
-  constructor(private bigDealService: bigDealService, private filteringService:filteringService) { 
+  constructor(private bigDealService: bigDealService, public filteringService:filteringService) { 
         //Retrieve data from service
         this.bigDealService.getVehiclesFromServer();
   }
