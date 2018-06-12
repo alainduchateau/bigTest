@@ -22,12 +22,12 @@
     <option value="gasoline">gasoline</option>
   </select>
 
-  <mat-slider min="10000" max="45000" step="1000" value="12000" thumbLabel width=4 00 tickInterval="1000" [(ngModel)]="filteringService.maxPrice"
+  <mat-slider min="10000" max="45000" step="1000" value="12000" thumbLabel width=400 tickInterval="1000" 
     (change)="filteringService.priceFilter($event.value)">
 
   </mat-slider>
 
-
+{{ filteringService.maxPrice }}
   <ng-container *ngIf="(listVehicles | sortByCarType:filteringService.carType | sortByFuel:filteringService.fuelType | filterByPrice:filteringService.maxPrice ) as result">
 
     <div *ngIf="result.length>0; else elseBlock" class="alert alert-success">
