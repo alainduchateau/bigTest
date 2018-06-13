@@ -1,5 +1,3 @@
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material'
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -46,9 +44,7 @@ const appRoutes: Routes = [
     
   ],
   imports: [
-    MatSliderModule,
     BrowserModule,
-    BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,

@@ -55,6 +55,9 @@ export class ListComponent implements OnInit {
     return(selectedModel.value.length);
   }
 
+  console(param){
+    console.log(param);
+  }
 
 OrderFilter="BigDealPrice";
 }

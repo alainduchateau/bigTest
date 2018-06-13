@@ -10,7 +10,7 @@
 
 <div class="container">
 
-  <select [ngModel]="filteringService.carType" id="carTypeSelector" class="form-control" name="carTypeSelector" ngModel (change)="filteringService.selectCarType($event.target.value)">
+  <select [ngModel]="filteringService.carType" id="carTypeSelector" class="form-control" name="carTypeSelector" (change)="filteringService.selectCarType($event.target.value)">
     <option value="all" selected>all</option>
     <option value="new">new</option>
     <option value="secondHand">second hand</option>
@@ -22,10 +22,9 @@
     <option value="gasoline">gasoline</option>
   </select>
 
-  <mat-slider min="10000" max="45000" step="1000" value="12000" thumbLabel width=400 tickInterval="1000" 
-    (change)="filteringService.priceFilter($event.value)">
-
-  </mat-slider>
+  <div class="slidecontainer">
+    <input type="range" min="8000" max="45000" value="45000" class="slider" id="myRange" step="1000" (change)="filteringService.priceFilter($event.target.value)">
+  </div>
 
 {{ filteringService.maxPrice }}
   <ng-container *ngIf="(listVehicles | sortByCarType:filteringService.carType | sortByFuel:filteringService.fuelType | filterByPrice:filteringService.maxPrice ) as result">
