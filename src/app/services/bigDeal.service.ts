@@ -100,6 +100,7 @@ groupBy(list, keyGetter) {
   dico = [
     {
       key: "i10",
+      order:1,
       values: ['i10 5d 12',
                'i10',
                'i10 5d',
@@ -110,6 +111,7 @@ groupBy(list, keyGetter) {
     },
     {
       key: "i20",
+      order:2,
       values: ['i20 5d 14',
                'i20 5d 13',
                'i20 5d go',
@@ -122,6 +124,7 @@ groupBy(list, keyGetter) {
     },
     {
       key: "i20 active",
+      order:4,
       values: ['i20act v5a',
                'i20 act v5a',
                'i20Act V5a'
@@ -129,12 +132,14 @@ groupBy(list, keyGetter) {
     },
     {
       key: "i20 coupe",
+      order:5,
       values: ['i20 3d v5a',
                'i20 3d 12'
               ]
     },
     {
       key: "ix20",
+      order:6,
       values: ['ix20 5d 13',
                'ix20',
                'ix20 5d 14',
@@ -144,6 +149,7 @@ groupBy(list, keyGetter) {
     },
     {
       key: "i30",
+      order:6,
       values: ['i30 3d v5a',
               'i30 3d 14',
               'i30 3deurs',
@@ -162,6 +168,7 @@ groupBy(list, keyGetter) {
     },
     {
       key: 'i30 Wagon',
+      order:7,
       values: ['i30 w 13',
               'i30 wagon',
               'i30 cw v5a',
@@ -182,11 +189,13 @@ groupBy(list, keyGetter) {
     },
     {
       key: "Veloster",
+      order:8,
       values: ['vel 4d v5a',
                'vel 3d 14']
     },
     {
       key: "IONIQ",
+      order:9,
       values: ['ion hv v6a',
                'ion hv v7a',
                'Ion HV V6a',
@@ -195,6 +204,7 @@ groupBy(list, keyGetter) {
     },
     {
       key: "i40 Sedan",
+      order:10,
       values: ['i40 sedan',
               'i40 4d 13',
               'i40 4d 14',
@@ -209,6 +219,7 @@ groupBy(list, keyGetter) {
     },
     {
       key: "i40 Wagon",
+      order:11,
       values: ['i40 w 12',
               'i40 w 13',
               'i40 w 14',
@@ -223,6 +234,7 @@ groupBy(list, keyGetter) {
     },
     {
       key: "ix35",
+      order:12,
       values: ['ix35', 
                'ix35 5d',
                'ix35 5d 14',
@@ -231,18 +243,21 @@ groupBy(list, keyGetter) {
     },
     {
       key: "ix20",
+      order:13,
       values: ['ix20 5d v5a',
                'ix20 5dv5a',
                'ix20 5dV5a']
     },
     {
       key: "Tucson",
+      order:14,
       values: ['tucson', 
                'tucson 5d v5a',
                'Tuc 5d V5a']
     },
     {
       key: "Santa Fe",
+      order:15,
       values: ['santa fe',
                'sfn 5d v5a',
                'sfn 5d 13',
@@ -253,10 +268,12 @@ groupBy(list, keyGetter) {
     },
     {
       key: "H-1",
+      order:16,
       values: ['h1 4d v5a']
     },
     {
       key: "Grand Santa Fe",
+      order:17,
       values: ['grand santa fe',
                'gsf 5d v5b',
                'gsf 5d v5a',
@@ -267,6 +284,7 @@ groupBy(list, keyGetter) {
     },
     {
       key: "h350",
+      order:18,
       values: ['h350']
     }
   ];

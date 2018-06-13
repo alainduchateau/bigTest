@@ -8,7 +8,7 @@
   <h5>{{count}} cars loaded in the list</h5>
 </div>
 
-<div class="container">
+
 
   <select [ngModel]="filteringService.carType" id="carTypeSelector" class="form-control" name="carTypeSelector" (change)="filteringService.selectCarType($event.target.value)">
     <option value="all" selected>all</option>
@@ -39,12 +39,14 @@
       </div>
     </ng-template>
 
-    <ul>
-      <li *ngFor="let car of result | groupBy:'marketingName' ">
+    <div class="row">
+      <div *ngFor="let car of result | groupBy:'marketingName' " class="col-md-4" style="background-color: #eeeeee;">
         <a href="family/{{car.key}}">
           <b>{{ car.key }}</b> {{sumByModel(car)}}</a>
-      </li>
-    </ul>
+      </div>
+
+    </div>
+    
 
   </ng-container>
 
@@ -55,4 +57,3 @@
    
   </table>
  -->
-</div>

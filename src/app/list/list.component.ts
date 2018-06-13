@@ -34,6 +34,7 @@ export class ListComponent implements OnInit {
         this.listVehicles = vehicles;
         // Group the model by the marketing name
         this.listyByModels(this.listVehicles);
+        console.log(this.listVehicles);
       }
     );
   }

@@ -4,10 +4,10 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class filteringService {
 
-  fuelType    : string;
+  fuelType: string;
   displayModel: number;
-  carType     : string;
-  maxPrice    : number = 45000;
+  carType: string;
+  maxPrice: number = 45000;
 
   /**
   * Filter the list by fuel type
@@ -55,13 +55,13 @@ export class filteringService {
  * @param {number} param => maximum price for the car
  * @memberof ListComponent
  */
-priceFilter(maxPrice:number){
+  priceFilter(maxPrice: number) {
 
-  localStorage.setItem('maxPrice',String(maxPrice));
-  this.maxPrice = maxPrice;
-  return this.maxPrice;
-}
+    localStorage.setItem('maxPrice', String(maxPrice));
+    this.maxPrice = maxPrice;
+    return this.maxPrice;
+  }
 
-  
+
 
 }
