@@ -29,10 +29,13 @@ export class SingleCarComponent implements OnInit {
     //Liste the http loader
     this.signleCarSubscription = this.bigDealService.vehiclesSubject.subscribe(
       (vehicles: any[]) => {
+        var temp;
         //Setup the variable to call the result later
         this.car = this.bigDealService.getCarById(this.modelReference);
         //Find the marketing name of this car
-        this.marketingName = this.bigDealService.getRightModelName(this.bigDealService.dico,this.car.Model);
+        temp = this.bigDealService.getRightModelName(this.bigDealService.dico,this.car.Model);
+        
+        this.marketingName = temp[0];
       }
     );
   

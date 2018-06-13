@@ -14,10 +14,9 @@ export class GroupByPipe implements PipeTransform {
             } else {
                 previous[current[property]].push(current);
             }
-
             return previous;
         }, {});
-
+        
         // this will return an array of objects, each object containing a group of objects
         return Object.keys(groupedCollection).map(key => ({ key, value: groupedCollection[key] }));
     }

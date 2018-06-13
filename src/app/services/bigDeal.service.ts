@@ -78,7 +78,8 @@ groupBy(list, keyGetter) {
     list.forEach(car => {
       var marketingName = this.getRightModelName(this.dico, car.Model);
       if (marketingName) {
-        car.marketingName = marketingName;
+        car.marketingName = marketingName[0];
+        car.order = marketingName[1];
       }
     }
     );
@@ -297,16 +298,18 @@ groupBy(list, keyGetter) {
  * @memberof bigDealService
  */
 getRightModelName(dictionnary, modelName) {
-    var output = "none";
+    var marketingName = "none";
+    var order = 0;
     Object.keys(dictionnary).forEach(key => {
       dictionnary[key].values.forEach(value => {
         if (value.toLowerCase() === modelName.toLowerCase()) {
-          output = dictionnary[key].key
+          marketingName = dictionnary[key].key
+          order =  dictionnary[key].order;
         }
       })
     }
     )
-    return output
+    return [marketingName,order]
   }
 
 }
