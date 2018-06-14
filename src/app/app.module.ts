@@ -8,7 +8,6 @@ import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { HttpClientModule } from '@angular/common/http';
 import { OrderModule } from 'ngx-order-pipe';
 
-
 import { AppComponent } from './app.component';
 import { bigDealService } from './services/bigDeal.service';
 import { filteringService } from './services/filtering.service';
