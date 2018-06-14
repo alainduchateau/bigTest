@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { HttpClientModule } from '@angular/common/http';
-
+import { OrderModule } from 'ngx-order-pipe';
 
 
 import { AppComponent } from './app.component';
@@ -45,6 +45,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    OrderModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
