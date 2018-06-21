@@ -312,4 +312,8 @@ getRightModelName(dictionnary, modelName) {
     return [marketingName,order]
   }
 
+  sumByModel(selectedModel){
+    return(selectedModel.value.length);
+  }
+
 }

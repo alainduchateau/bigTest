@@ -1,0 +1,16 @@
+<select [ngModel]="filteringService.carType" id="carTypeSelector" class="form-control" name="carTypeSelector" (change)="filteringService.selectCarType($event.target.value)">
+  <option value="All type" selected>All types</option>
+  <option value="new">new</option>
+  <option value="secondHand">second hand</option>
+</select>
+
+<select [ngModel]="filteringService.fuelType" id="carFuelSelector" class="form-control" name="carFuelSelector" (change)="filteringService.selectFuelType($event.target.value)">
+  <option value="All fuels" selected>All fuels</option>
+  <option value="diesel">Diesel</option>
+  <option value="gasoline">gasoline</option>
+</select>
+
+<div class="slidecontainer">
+  <input type="range" min="8000" max="45000" value=filteringService.maxPrice class="slider" id="myRange" step="1000" (change)="filteringService.priceFilter($event.target.value)">
+</div>
+{{ filteringService.maxPrice }}

@@ -1,30 +1,14 @@
 <h2>Welcome on the bigDeal !</h2>
 
 <div *ngIf="!listVehicles" class="alert alert-error box-msg">
-  <h5>loadgin vehicles</h5>
+  <h5>loading vehicles</h5>
 </div>
 
 <div *ngIf="listVehicles">
   <h5>{{count}} cars loaded in the list</h5>
 </div>
 
-  <select [ngModel]="filteringService.carType" id="carTypeSelector" class="form-control" name="carTypeSelector" (change)="filteringService.selectCarType($event.target.value)">
-    <option value="all" selected>all</option>
-    <option value="new">new</option>
-    <option value="secondHand">second hand</option>
-  </select>
-
-  <select [ngModel]="filteringService.fuelType" id="carFuelSelector" class="form-control" name="carFuelSelector" (change)="filteringService.selectFuelType($event.target.value)">
-    <option value="all" selected>all</option>
-    <option value="diesel">Diesel</option>
-    <option value="gasoline">gasoline</option>
-  </select>
-
-  <div class="slidecontainer">
-    <input type="range" min="8000" max="45000" value="45000" class="slider" id="myRange" step="1000" (change)="filteringService.priceFilter($event.target.value)">
-  </div>
-
-{{ filteringService.maxPrice }}
+<app-range-filter></app-range-filter>
 
   <ng-container *ngIf="(listVehicles | sortByCarType:filteringService.carType | sortByFuel:filteringService.fuelType | filterByPrice:filteringService.maxPrice) as result">
 
@@ -41,18 +25,9 @@
     <div class="row">
       <div *ngFor="let car of result | orderBy: 'order'  |groupBy:'marketingName' " class="col-md-4" style="background-color: #eeeeee;margin-top:5px;">
         <a href="family/{{car.key}}">
-          <b>{{ car.key }}</b> {{sumByModel(car)}}</a>
+          <b>{{ car.key }}</b> {{bigDealService.sumByModel(car)}}</a>
       </div>
-
     </div>
     
 
   </ng-container>
-
-
-
-  <!--
-  <table>
-   
-  </table>
- -->

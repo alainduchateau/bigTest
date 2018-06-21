@@ -8,7 +8,7 @@ export class sortByFuelPipe implements PipeTransform {
       return null;
     }
 
-    if (!property || property ==="all") {
+    if (!property || property ==="All fuels") {
       return collection;
     } else {
       var filteredCollection = collection.filter(car => car.FuelCode === property);

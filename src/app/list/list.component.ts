@@ -44,22 +44,12 @@ export class ListComponent implements OnInit {
     this.sortedByFamilies = this.bigDealService.groupBy(carList, car => car.marketingName);
     //carList.filter(car => car.BigDealPrice < 20000);
     this.carFamilies = Array.from(this.sortedByFamilies.keys());
-     // Count the total of vehicles in list
+    // Count the total of vehicles in list
      this.count = carList.length;
-     //console.log(carList);
-
-   
-  }
-
-  sumByModel(selectedModel){
-    //console.log(selectedModel);
-    return(selectedModel.value.length);
   }
 
   console(param){
     console.log(param);
   }
 
-OrderFilter="BigDealPrice";
 }
-

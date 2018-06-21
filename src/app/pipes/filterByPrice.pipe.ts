@@ -7,7 +7,7 @@ export class filterByPricePipe implements PipeTransform {
       return collection
     } else {
       //Apply filter collection by property
-      var filteredCollection = collection.filter(car => car.BigDealPrice <= +property);
+      var filteredCollection = collection.filter(car => car.BigDealPrice <= Number(property));
       return filteredCollection;
     }
   }

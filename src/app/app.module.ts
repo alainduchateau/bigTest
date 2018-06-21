@@ -9,16 +9,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { OrderModule } from 'ngx-order-pipe';
 
 import { AppComponent } from './app.component';
-import { bigDealService } from './services/bigDeal.service';
-import { filteringService } from './services/filtering.service';
 import { ListComponent } from './list/list.component';
 import { SingleCarComponent } from './single-car/single-car.component';
 import { CarFamilyComponent } from './car-family/car-family.component';
+import { RangeFilterComponent } from './range-filter/range-filter.component';
+
 import { QuestionableBooleanPipe } from './pipes/questionableBoolean.pipe';
 import { GroupByPipe } from './pipes/groupBy.pipe';
 import { sortByFuelPipe } from './pipes/sortByFuel.pipe';
 import { sortByCarTypePipe } from './pipes/sortByCarType.pipe';
 import { filterByPricePipe} from './pipes/filterByPrice.pipe';
+
+import { bigDealService } from './services/bigDeal.service';
+import { filteringService } from './services/filtering.service';
+
+
 
 
 const appRoutes: Routes = [
@@ -39,7 +44,8 @@ const appRoutes: Routes = [
     GroupByPipe,
     sortByFuelPipe,
     sortByCarTypePipe,
-    filterByPricePipe
+    filterByPricePipe,
+    RangeFilterComponent,
     
   ],
   imports: [

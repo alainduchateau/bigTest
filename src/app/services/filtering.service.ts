@@ -7,7 +7,7 @@ export class filteringService {
   fuelType: string;
   displayModel: number;
   carType: string;
-  maxPrice: number = 45000;
+  maxPrice: number 
 
   /**
   * Filter the list by fuel type

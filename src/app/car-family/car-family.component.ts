@@ -42,8 +42,7 @@ export class CarFamilyComponent implements OnInit {
         this.modelFamilyArray = this.modelFamilyList.get(this.selectedFamily);
         //Count family membre
         this.count = this.modelFamilyArray.length;
-
-        this.fuelType = localStorage.getItem("fuelType");
+        
       }
     );
   }
