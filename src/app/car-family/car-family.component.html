@@ -5,9 +5,22 @@
 
 <app-range-filter></app-range-filter>
 
-<div>
-  <ul class="list-group">
-    <li class="list-group-item" *ngFor="let model of modelFamilyArray">
-    <a routerLink="../../detail/{{model.Reference}}">{{ model.Reference }}</a>
-  </li>
-</ul>
+<ng-container *ngIf="(modelFamilyArray | sortByCarType:filteringService.carType | sortByFuel:filteringService.fuelType | filterByPrice:filteringService.maxPrice) as result">
+
+  <div *ngIf="result.length>0; else elseBlock" class="alert alert-success">
+    {{result.length}} vehicles in your selection
+  </div>
+
+  <ng-template #elseBlock>
+    <div class="alert alert-warning">
+      No vehicle matches with your selection
+    </div>
+  </ng-template>
+
+  <div class="row">
+    <div class="list-group-item col-md-12" *ngFor="let model of result | orderBy: 'order'">
+      <a  routerLink="../../detail/{{model.Reference}}">{{ model.Reference }}</a>
+    </div>
+  </div>
+
+</ng-container>
