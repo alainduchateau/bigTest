@@ -47,5 +47,4 @@ export class CarFamilyComponent implements OnInit {
     );
   }
   
-
 }

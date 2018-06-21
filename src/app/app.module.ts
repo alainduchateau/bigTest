@@ -14,7 +14,6 @@ import { SingleCarComponent } from './single-car/single-car.component';
 import { CarFamilyComponent } from './car-family/car-family.component';
 import { RangeFilterComponent } from './range-filter/range-filter.component';
 
-import { QuestionableBooleanPipe } from './pipes/questionableBoolean.pipe';
 import { GroupByPipe } from './pipes/groupBy.pipe';
 import { sortByFuelPipe } from './pipes/sortByFuel.pipe';
 import { sortByCarTypePipe } from './pipes/sortByCarType.pipe';
@@ -24,8 +23,6 @@ import { bigDealService } from './services/bigDeal.service';
 import { filteringService } from './services/filtering.service';
 
 
-
-
 const appRoutes: Routes = [
  
   { path: 'family/:modelFamily', component: CarFamilyComponent},
@@ -33,20 +30,17 @@ const appRoutes: Routes = [
   { path: '', component: ListComponent }
 ];
  
-
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     SingleCarComponent,
     CarFamilyComponent,
-    QuestionableBooleanPipe,
     GroupByPipe,
     sortByFuelPipe,
     sortByCarTypePipe,
     filterByPricePipe,
     RangeFilterComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -56,7 +50,6 @@ const appRoutes: Routes = [
     HttpClientModule,
     NgProgressModule.forRoot(),
     NgProgressHttpModule,
-       
   ],
   providers: [bigDealService,filteringService],
   bootstrap: [AppComponent]

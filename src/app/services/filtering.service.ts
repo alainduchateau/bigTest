@@ -4,10 +4,18 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class filteringService {
 
-  fuelType: string;
+  fuelType: string = "All fuels";
   displayModel: number;
-  carType: string;
-  maxPrice: number 
+  carType: string = "All type";
+  maxPrice: number
+
+  ngOnInit() {
+    if (localStorage.getItem('maxPrice')) {
+      this.maxPrice = Number(localStorage.getItem('maxPrice'));
+    } else {
+      this.maxPrice = 45000;
+    }
+  }
 
   /**
   * Filter the list by fuel type
@@ -36,11 +44,11 @@ export class filteringService {
       case "secondHand":
         output = "secondHand";
         break;
-      case "new":
+      case "New":
         output = "New";
         break;
       default:
-        output = "All";
+        output = "All type";
     }
     this.carType = output;
 

@@ -1,6 +1,6 @@
 <select [ngModel]="filteringService.carType" id="carTypeSelector" class="form-control" name="carTypeSelector" (change)="filteringService.selectCarType($event.target.value)">
   <option value="All type" selected>All type</option>
-  <option value="new">new</option>
+  <option value="New">new</option>
   <option value="secondHand">second hand</option>
 </select>
 
@@ -11,6 +11,6 @@
 </select>
 
 <div class="slidecontainer">
-  <input type="range" min="8000" max="45000" value=filteringService.maxPrice class="slider" id="myRange" step="1000" (change)="filteringService.priceFilter($event.target.value)">
+  <input [ngModel]="filteringService.maxPrice" type="range" min="8000" max="45000" value=filteringService.maxPrice class="slider" id="myRange" step="1000" (change)="filteringService.priceFilter($event.target.value)">
 </div>
 {{ filteringService.maxPrice }}
