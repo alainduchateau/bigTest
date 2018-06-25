@@ -10,24 +10,36 @@
 
 <app-range-filter></app-range-filter>
 
-  <ng-container *ngIf="(listVehicles | sortByCarType:filteringService.carType | sortByFuel:filteringService.fuelType | filterByPrice:filteringService.maxPrice) as result">
+<ng-container *ngIf="(listVehicles | sortByCarType:filteringService.carType | sortByFuel:filteringService.fuelType | filterByPrice:filteringService.maxPrice) as result">
 
-    <div *ngIf="result.length>0; else elseBlock" class="alert alert-success">
-      {{result.length}} vehicles in your selection
+  <div *ngIf="result.length>0; else elseBlock" class="alert alert-success">
+    {{result.length}} vehicles in your selection
+  </div>
+
+  <ng-template #elseBlock>
+    <div class="alert alert-warning">
+      No vehicle matches with your selection
     </div>
+  </ng-template>
 
-    <ng-template #elseBlock>
-      <div class="alert alert-warning">
-        No vehicle matches with your selection
-      </div>
-    </ng-template>
+  <div class="row">
+    <div *ngFor="let car of result | orderBy: 'order'  |groupBy:'marketingName' " class="col-md-4" style="background-color: #eeeeee;margin-top:5px;">
 
-    <div class="row">
-      <div *ngFor="let car of result | orderBy: 'order'  |groupBy:'marketingName' " class="col-md-4" style="background-color: #eeeeee;margin-top:5px;">
+      <div *ngIf="bigDealService.sumByModel(car)>1; else singleCarBloc">
         <a href="family/{{car.key}}">
           <b>{{ car.key }}</b> {{bigDealService.sumByModel(car)}}</a>
       </div>
-    </div>
-    
 
-  </ng-container>
+      <ng-template #singleCarBloc>
+        <div>
+          <a href="../../detail/{{carReference(car)}}">
+            <b>{{ car.key }}</b> {{bigDealService.sumByModel(car)}}</a>
+           
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+
+
+</ng-container>

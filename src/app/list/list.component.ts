@@ -52,4 +52,8 @@ export class ListComponent implements OnInit {
     console.log(param);
   }
 
+  carReference(object) {
+    return(object.value[0]["Reference"]);
+}
+
 }
