@@ -39,7 +39,7 @@ export class RangeFilterComponent implements OnInit {
       this.filteringService.fuelType = localStorage.getItem('fuelType');
     }
     if(localStorage.getItem('carType')){
-      this.filteringService.carType = localStorage.getItem('carType');
+      this.filteringService.carType = Number(localStorage.getItem('carType'));
     }
     if(localStorage.getItem('maxPrice')){
       this.filteringService.maxPrice = Number(localStorage.getItem('maxPrice'));

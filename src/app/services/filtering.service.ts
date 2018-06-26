@@ -6,27 +6,20 @@ export class filteringService {
 
   fuelType: string = "All fuels";
   displayModel: number;
-  carType: string = "All type";
+  carType: number = 0;
   maxPrice: number
+ 
+  selectedCarType2 : any[];
 
-  selectedUsers3 = [
-    {
-      id: 1,
-      name: 'name1'
-    },{
-      id: 2,
-      name: 'name2'
-    }
-  ];
   carType2 = [
     {
-      id: 1,
+      id: 0,
       label: 'All'
     },{
-      id: 2,
+      id: 1,
       label: 'New'
     },{
-      id: 3,
+      id: 2,
       label: 'Second hand'
     }
   ];
@@ -75,23 +68,11 @@ export class filteringService {
  * @param {string} param => type of car : "secondHand", "new" or "All"
  * @memberof ListComponent
  */
-  selectCarType(param: string) {
+  selectCarType(param: number) {
 
-    var output: string;
+    this.carType = param;
 
-    switch (param) {
-      case "secondHand":
-        output = "secondHand";
-        break;
-      case "New":
-        output = "New";
-        break;
-      default:
-        output = "All type";
-    }
-    this.carType = output;
-
-    localStorage.setItem('carType', output);
+    localStorage.setItem('carType', String(this.carType));
 
     return this.carType;
   }

@@ -19,7 +19,6 @@ export class CarFamilyComponent implements OnInit {
   carFuel: string;
   listVehicles:any;
   selectedFamily:any;
-
   fuelType:string;
 
   familySubscription: Subscription;
