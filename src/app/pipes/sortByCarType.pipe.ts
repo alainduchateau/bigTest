@@ -10,11 +10,9 @@ export class sortByCarTypePipe implements PipeTransform {
     
     switch (carType) {
       case "1":
-      console.log("par ici "+carType);
         var filteredCollection = collection.filter(car => !car.FirstImmatDate);
         break;
       case "2":
-      console.log("par ici "+carType);
         var filteredCollection = collection.filter(car => car.FirstImmatDate);
         break;
       default:
