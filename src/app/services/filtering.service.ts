@@ -6,7 +6,7 @@ export class filteringService {
 
   fuelType: string = "All fuels";
   displayModel: number;
-  carType: number = 0;
+  carType: string = "0";
   maxPrice: number
  
   selectedCarType2 : any[];
@@ -68,7 +68,7 @@ export class filteringService {
  * @param {string} param => type of car : "secondHand", "new" or "All"
  * @memberof ListComponent
  */
-  selectCarType(param: number) {
+  selectCarType(param: string) {
 
     this.carType = param;
 
