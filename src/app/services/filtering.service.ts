@@ -22,6 +22,21 @@ export class filteringService {
     }
   ];
 
+  fuelType2=[
+    {
+      id:0,
+      label:'All'
+    },
+    {
+      id:1,
+      label:'Diesel'
+    },
+    {
+      id:0,
+      label:'Benzine'
+    },
+  ]
+
   ngOnInit() {
     if (localStorage.getItem('maxPrice')) {
       this.maxPrice = Number(localStorage.getItem('maxPrice'));
