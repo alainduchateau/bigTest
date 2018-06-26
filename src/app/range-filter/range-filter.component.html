@@ -1,7 +1,7 @@
 
 
-    <select  [(ngModel)]="selectedUsers3">
-        <option *ngFor="let carType of filteringService.carType2" [ngValue]="carType">{{carType.label}}</option>
+    <select  [(ngModel)]="filteringService.selectedCarType2" (change)="consoleThis(($event.target.value))">
+        <option *ngFor="let carType of filteringService.carType2" [ngValue]="carType.id" >{{carType.label}}</option>
       </select>
 
   <select [ngModel]="filteringService.carType" id="carTypeSelector" class="form-control" name="carTypeSelector" (change)="filteringService.selectCarType($event.target.value)">

@@ -9,15 +9,24 @@ export class filteringService {
   carType: string = "All type";
   maxPrice: number
 
-  carType2 = [
+  selectedUsers3 = [
     {
-      id: 0,
-      label: 'All'
-    },{
       id: 1,
-      label: 'New'
+      name: 'name1'
     },{
       id: 2,
+      name: 'name2'
+    }
+  ];
+  carType2 = [
+    {
+      id: 1,
+      label: 'All'
+    },{
+      id: 2,
+      label: 'New'
+    },{
+      id: 3,
       label: 'Second hand'
     }
   ];
@@ -36,6 +45,8 @@ export class filteringService {
       label:'Benzine'
     },
   ]
+
+
 
   ngOnInit() {
     if (localStorage.getItem('maxPrice')) {

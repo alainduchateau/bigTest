@@ -45,5 +45,8 @@ export class RangeFilterComponent implements OnInit {
       this.filteringService.maxPrice = Number(localStorage.getItem('maxPrice'));
     }
   }
+  consoleThis(param){
+    console.log(param);
+  }
 
 }
