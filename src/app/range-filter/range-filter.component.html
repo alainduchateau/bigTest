@@ -1,16 +1,24 @@
-<select [ngModel]="filteringService.carType" id="carTypeSelector" class="form-control" name="carTypeSelector" (change)="filteringService.selectCarType($event.target.value)">
-  <option value="All type" selected>All type</option>
-  <option value="New">new</option>
-  <option value="secondHand">second hand</option>
-</select>
 
-<select [ngModel]="filteringService.fuelType" id="carFuelSelector" class="form-control" name="carFuelSelector" (change)="filteringService.selectFuelType($event.target.value)">
-  <option value="All fuels" selected>All fuels</option>
-  <option value="diesel">Diesel</option>
-  <option value="gasoline">gasoline</option>
-</select>
 
-<div class="slidecontainer">
-  <input [ngModel]="filteringService.maxPrice" type="range" min="8000" max="45000" value=filteringService.maxPrice class="slider" id="myRange" step="1000" (change)="filteringService.priceFilter($event.target.value)">
-</div>
+    <select  [(ngModel)]="selectedUsers3">
+        <option *ngFor="let carType of filteringService.carType2" [ngValue]="carType">{{carType.label}}</option>
+      </select>
+
+  <select [ngModel]="filteringService.carType" id="carTypeSelector" class="form-control" name="carTypeSelector" (change)="filteringService.selectCarType($event.target.value)">
+    <option value="All type" selected>All type</option>
+    <option value="New">new</option>
+    <option value="secondHand">second hand</option>
+  </select>
+
+  <select [ngModel]="filteringService.fuelType" id="carFuelSelector" class="form-control" name="carFuelSelector" (change)="filteringService.selectFuelType($event.target.value)">
+    <option value="All fuels" selected>All fuels</option>
+    <option value="diesel">Diesel</option>
+    <option value="gasoline">gasoline</option>
+  </select>
+
+  <div class="slidecontainer">
+    <input [ngModel]="filteringService.maxPrice" type="range" min="8000" max="45000" value=filteringService.maxPrice class="slider"
+      id="myRange" step="1000" (change)="filteringService.priceFilter($event.target.value)">
+  </div>
+
 {{ filteringService.maxPrice }}

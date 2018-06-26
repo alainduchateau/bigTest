@@ -9,6 +9,19 @@ export class filteringService {
   carType: string = "All type";
   maxPrice: number
 
+  carType2 = [
+    {
+      id: 0,
+      label: 'All'
+    },{
+      id: 1,
+      label: 'New'
+    },{
+      id: 2,
+      label: 'Second hand'
+    }
+  ];
+
   ngOnInit() {
     if (localStorage.getItem('maxPrice')) {
       this.maxPrice = Number(localStorage.getItem('maxPrice'));

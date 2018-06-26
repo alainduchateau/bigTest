@@ -17,7 +17,6 @@ export class ListComponent implements OnInit {
   count: number;
   sortedByFamilies: any;
 
-
   vehiclesSubscription: Subscription;
 
   constructor(private bigDealService: bigDealService, public filteringService:filteringService) { 
