@@ -8,7 +8,7 @@ import { filteringService } from "../services/filtering.service";
 })
 export class RangeFilterComponent implements OnInit {
 
-  constructor(public filteringService:filteringService) { }
+ constructor(public filteringService:filteringService) { }
 
   ngOnInit() {
     // Retriving of var present in localStorage
@@ -16,7 +16,7 @@ export class RangeFilterComponent implements OnInit {
       this.filteringService.fuelType = localStorage.getItem('fuelType');
     }
     if(localStorage.getItem('carType')){
-      this.filteringService.carType = (localStorage.getItem('carType'));
+      this.filteringService.carType = String(localStorage.getItem('carType'));
     }
     if(localStorage.getItem('maxPrice')){
       this.filteringService.maxPrice = Number(localStorage.getItem('maxPrice'));
