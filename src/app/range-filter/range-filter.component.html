@@ -1,5 +1,5 @@
-<select  (change)="filteringService.selectCarType($event.target.value)">
-  <option *ngFor="let carType of filteringService.carType2" value="{{carType.id}}">{{carType.label}}</option>
+<select [ngModel]="filteringService.selectCarType2" (change)="filteringService.selectCarType($event.target.value)">
+  <option *ngFor="let carType of filteringService.carType2" value="{{carType.id}}" selected="{{carType.id}} == {{filteringService.selectCarType2}}">{{carType.label}}</option>
 </select>
 
 <select [ngModel]="filteringService.carType" id="carTypeSelector" class="form-control" name="carTypeSelector" (change)="filteringService.selectCarType($event.target.value)">

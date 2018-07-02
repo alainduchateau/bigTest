@@ -9,7 +9,7 @@ export class filteringService {
   carType: string = "0";
   maxPrice: number
  
-  selectedCarType2 : any[];
+  selectedCarType2 : string;
 
   carType2 = [
     {
@@ -73,6 +73,7 @@ export class filteringService {
     this.carType = param;
 
     localStorage.setItem('carType', String(this.carType));
+    this.selectedCarType2 = param;
 
     return this.carType;
   }
