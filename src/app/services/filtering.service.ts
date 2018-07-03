@@ -4,10 +4,10 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class filteringService {
 
-  fuelType: string = "All fuels";
+  fuelType: string = "0";
   displayModel: number;
   carType: string = "0";
-  maxPrice: number
+  maxPrice: number = 45000;
 
   carTypeProvision = [
     {
