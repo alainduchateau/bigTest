@@ -23,7 +23,7 @@ export class CarFamilyComponent implements OnInit {
 
   familySubscription: Subscription;
 
-  constructor(private bigDealService: bigDealService, private route: ActivatedRoute, private filteringService:filteringService) {
+  constructor(private bigDealService: bigDealService, private route: ActivatedRoute, public filteringService:filteringService) {
     this.bigDealService.getVehiclesFromServer();
   }
 
