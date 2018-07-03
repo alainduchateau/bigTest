@@ -16,7 +16,7 @@ export class sortByFuelPipe implements PipeTransform {
     if (!collection) {
       return null;
     }
-   // If no data in property or "All fuels"
+   // If no data in property or "All fuels" (index 0)
     if (!property || property ==="0") {
       return collection;
     } else {
