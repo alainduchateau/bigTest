@@ -1,25 +1,44 @@
-<div class="row" style="margin-top: 50px;">
-  <div class="form-group col-lg-3 col-xs-12">
-    <label for="selectCarType">Car type:</label>
-    <select [ngModel]="filteringService.carType" (change)="filteringService.selectCarType($event.target.value)" class="form-control"
-      id="selectCarType">
-      <option *ngFor="let carType of filteringService.carTypeProvision" value="{{carType.id}}">{{carType.label}}</option>
-    </select>
-  </div>
+<a class="btn btn-primary" data-toggle="collapse" href="#filter" role="button" aria-expanded="false" aria-controls="filter">
+  Link with href
+</a>
 
-  <div class="form-group col-lg-3 col-xs-12">
-    <label for="selectFuelType">Fuel type:</label>
-    <select [ngModel]="filteringService.fuelType" (change)="filteringService.selectFuelType($event.target.value)" class="form-control"
-      id="selectFuelType">
-      <option *ngFor="let fuelType of filteringService.fuelTypeProvision" value="{{fuelType.id}}">{{fuelType.label}}</option>
-    </select>
+<div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Action
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
   </div>
+</div>
 
-  <div class="form-group col-lg-6 col-xs-12">
-    <label for="selectPrice">Max price: {{ filteringService.maxPrice }} €</label>
-    <div class="slidecontainer" >
-      <input [ngModel]="filteringService.maxPrice" type="range" min="8000" max="45000" value=filteringService.maxPrice class="slider"
-        id="selectPrice" step="1000" (change)="filteringService.priceFilter($event.target.value)" style="width:100%; margin-top: 10px">
+<div id="filter">
+  <div class="row" style="margin-top: 50px;">
+    <div class="form-group col-lg-3 col-xs-12">
+      <label for="selectCarType">Car type:</label>
+      <select [ngModel]="filteringService.carType" (change)="filteringService.selectCarType($event.target.value)" class="form-control"
+        id="selectCarType">
+        <option *ngFor="let carType of filteringService.carTypeProvision" value="{{carType.id}}">{{carType.label}}</option>
+      </select>
+    </div>
+
+    <div class="form-group col-lg-3 col-xs-12">
+      <label for="selectFuelType">Fuel type:</label>
+      <select [ngModel]="filteringService.fuelType" (change)="filteringService.selectFuelType($event.target.value)" class="form-control"
+        id="selectFuelType">
+        <option *ngFor="let fuelType of filteringService.fuelTypeProvision" value="{{fuelType.id}}">{{fuelType.label}}</option>
+      </select>
+    </div>
+
+    <div class="form-group col-lg-6 col-xs-12">
+      <label for="selectPrice">Max price: {{ filteringService.maxPrice }} €</label>
+      <div class="slidecontainer">
+        <input [ngModel]="filteringService.maxPrice" type="range" min="8000" max="45000" value=filteringService.maxPrice class="slider"
+          id="selectPrice" step="1000" (change)="filteringService.priceFilter($event.target.value)" style="width:100%; margin-top: 10px">
+      </div>
     </div>
   </div>
 </div>

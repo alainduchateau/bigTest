@@ -7,6 +7,7 @@ import { NgProgressModule } from '@ngx-progressbar/core';
 import { NgProgressHttpModule } from '@ngx-progressbar/http';
 import { HttpClientModule } from '@angular/common/http';
 import { OrderModule } from 'ngx-order-pipe';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
@@ -50,6 +51,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     NgProgressModule.forRoot(),
     NgProgressHttpModule,
+    NgbModule.forRoot()
   ],
   providers: [bigDealService,filteringService],
   bootstrap: [AppComponent]
