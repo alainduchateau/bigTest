@@ -1,7 +1,11 @@
-<select [ngModel]="filteringService.selectedCarType2" (change)="filteringService.selectCarType($event.target.value)">
-  <option *ngFor="let carType of filteringService.carType2" value="{{carType.id}}" selected="{{carType.id}} == {{filteringService.selectCarType2}}">{{carType.label}}</option>
+<select [ngModel]="filteringService.carType" (change)="filteringService.selectCarType($event.target.value)">
+  <option *ngFor="let carType of filteringService.carTypeProvision" value="{{carType.id}}" >{{carType.label}}</option>
 </select>
 
+<select [ngModel]="filteringService.fuelType" (change)="filteringService.selectFuelType($event.target.value)">
+  <option *ngFor="let fuelType of filteringService.fuelTypeProvision" value="{{fuelType.id}}" >{{fuelType.label}}</option>
+</select>
+<!--
 <select [ngModel]="filteringService.carType" id="carTypeSelector" class="form-control" name="carTypeSelector" (change)="filteringService.selectCarType($event.target.value)">
   <option value="All type" selected>All type</option>
   <option value="New">new</option>
@@ -13,7 +17,7 @@
   <option value="diesel">Diesel</option>
   <option value="gasoline">gasoline</option>
 </select>
-
+-->
 <div class="slidecontainer">
   <input [ngModel]="filteringService.maxPrice" type="range" min="8000" max="45000" value=filteringService.maxPrice class="slider"
     id="myRange" step="1000" (change)="filteringService.priceFilter($event.target.value)">

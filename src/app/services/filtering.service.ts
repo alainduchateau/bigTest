@@ -8,10 +8,8 @@ export class filteringService {
   displayModel: number;
   carType: string = "0";
   maxPrice: number
- 
-  selectedCarType2 = "1";
 
-  carType2 = [
+  carTypeProvision = [
     {
       id: 0,
       label: 'All'
@@ -24,18 +22,21 @@ export class filteringService {
     }
   ];
 
-  fuelType2=[
+  fuelTypeProvision = [
     {
       id:0,
-      label:'All'
+      label:'All',
+      reference:'All'
     },
     {
       id:1,
-      label:'Diesel'
+      label:'Diesel',
+      reference:'diesel'
     },
     {
-      id:0,
-      label:'Benzine'
+      id:2,
+      label:'Gasoline',
+      reference:'gasoline'
     },
   ]
 
@@ -74,7 +75,7 @@ export class filteringService {
 
     localStorage.setItem('carType', String(this.carType));
    // this.selectedCarType2 = param;
-
+    console.log("carType : "+this.carType);
     return this.carType;
   }
 

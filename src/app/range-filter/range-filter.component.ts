@@ -11,7 +11,7 @@ export class RangeFilterComponent implements OnInit {
  constructor(public filteringService:filteringService) { }
 
   ngOnInit() {
-    // Retriving of var present in localStorage
+    // Retriving vars present in localStorage
     if(localStorage.getItem('fuelType')){
       this.filteringService.fuelType = localStorage.getItem('fuelType');
     }

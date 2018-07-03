@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'sortByCarType' })
 export class sortByCarTypePipe implements PipeTransform {
+ 
   transform(collection: any[], carType): any[] {
     // prevents the application from breaking if the array of objects doesn't exist yet
     if (!collection || !carType) {
